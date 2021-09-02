@@ -24,6 +24,12 @@
     "import/prefer-default-export": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "react/jsx-props-no-spreading": "off",
+    "react/require-default-props": "off",
+    "operator-linebreak": "off",
+    "implicit-arrow-linebreak": "off",
+    "no-confusing-arrow": "off",
+    "object-curly-newline": "off",
+    "arrow-parens": "off",
     "react/jsx-filename-extension": [
       1,
       {
@@ -33,7 +39,7 @@
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
     "react/react-in-jsx-scope": "off",
-    "prettier/prettier": ["error", { "singleQuote": true }],
+    "prettier/prettier": ["off", { "singleQuote": true }],
     "import/extensions": [
       "error",
       "ignorePackages",
