@@ -1,13 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-import { Container } from './styles'
+import { Container } from './styles';
 
-const Home = () => {
-  return (
-    <Container>
-      Welcome to Home Page
-    </Container>
-  )
-}
+const Home = () => (
+  <Container>
+    <h1>Welcome to Home Page</h1>
+  </Container>
+);
 
-export default Home
+export default Home;
