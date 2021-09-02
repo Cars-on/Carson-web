@@ -23,6 +23,7 @@
     "react-hooks/exhaustive-deps": "warn",
     "import/prefer-default-export": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
+    "react/jsx-props-no-spreading": "off",
     "react/jsx-filename-extension": [
       1,
       {
