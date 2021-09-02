@@ -17,10 +17,10 @@ const Head: React.FC = () => (
     />
     <meta property="og:url" content="https://cars-on.herokuapp.com/" />
     <meta property="og:site_name" content="carson" />
-    <meta property="og:image" content="https://imgur.com/a/tAy9mNB" />
+    <meta property="og:image" content="https://i.imgur.com/ZD8FVUk.png" />
     <meta
       property="og:image:secure_url"
-      content="https://imgur.com/a/tAy9mNB"
+      content="https://i.imgur.com/ZD8FVUk.png"
     />
 
     <meta name="twitter:card" content="summary" />
