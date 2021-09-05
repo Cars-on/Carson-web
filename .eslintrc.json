@@ -19,6 +19,11 @@
   },
   "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier"],
   "rules": {
+    "eslint-disable-next-line": [
+      "arrow-body-style",
+      " prettier/prettier",
+      "react/self-closing-comp"
+    ],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "import/prefer-default-export": "off",

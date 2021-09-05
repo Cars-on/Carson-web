@@ -10,6 +10,25 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
   }
 
+  :root { 
+    --dark: #0B2926;
+    --grey: #A4B3B5;
+    --white: #FFFFFF;
+    --gradient: linear-gradient(90deg, #38BCAC 0%, #A4B3B5 100%);
+    --lightRed: #D17474
+    --lightBlue: #38BCAC;
+    --lightGrey: #FAFAFA;
+  }
+
+  h1 {
+    font-family: 'Big Shoulders Display', cursive;
+  }
+
+  p {
+    font-family: 'Archivo', sans-serif;
+  }
+  
+
   a {
     color: inherit;
     text-decoration: none;
