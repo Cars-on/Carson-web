@@ -19,7 +19,7 @@ export const Content = styled.div`
 
   width: 100%;
   max-width: 1440px;
-  padding: 20px;
+  padding: 20px 30px;
 
   .options {
     display: flex;

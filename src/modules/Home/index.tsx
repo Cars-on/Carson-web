@@ -1,10 +1,14 @@
 import React from 'react';
 
-import { Container } from './styles';
+import SearchBar from '@/shared/components/molecules/SearchBar';
+
+import { Container, Content } from './styles';
 
 const Home = () => (
   <Container>
-    <h1>Welcome to Home Page</h1>
+    <Content>
+      <SearchBar className="search-bar" />
+    </Content>
   </Container>
 );
 
