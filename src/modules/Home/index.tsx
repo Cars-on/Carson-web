@@ -1,10 +1,12 @@
 import React from 'react';
+import Hero from '@/shared/components/molecules/Hero';
 
-import { Container } from './styles';
+import { Container, Content } from './styles';
 
 const Home = () => (
   <Container>
-    <h1>Welcome to Home Page</h1>
+    <Hero />
+    <Content />
   </Container>
 );
 
