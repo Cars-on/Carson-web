@@ -8,7 +8,7 @@ export const GlobalStyle = createGlobalStyle`
     --black-20: #CDD0CF;
     --gray: #A4B3B5;
 
-    --blue-aqua: #38BCAC;
+    --green-aqua: #38BCAC;
     --green-dark: #0B2926;
     --green: #38BC6D;
     --red: #BC3838;
@@ -25,7 +25,7 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
   }
 
-  :root { 
+  :root {
     --dark: #0B2926;
     --grey: #A4B3B5;
     --white: #FFFFFF;
@@ -35,6 +35,10 @@ export const GlobalStyle = createGlobalStyle`
     --lightGrey: #FAFAFA;
   }
 
+  #__next {
+    position: relative;
+  }
+
   h1 {
     font-family: 'Big Shoulders Display', cursive;
   }
@@ -42,7 +46,7 @@ export const GlobalStyle = createGlobalStyle`
   p {
     font-family: 'Archivo', sans-serif;
   }
-  
+
 
   a {
     color: inherit;
