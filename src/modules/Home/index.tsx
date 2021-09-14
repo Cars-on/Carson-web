@@ -6,7 +6,6 @@ import { Container, Content } from './styles';
 const Home = () => (
   <Container>
     <Hero />
-
     <Content />
   </Container>
 );
