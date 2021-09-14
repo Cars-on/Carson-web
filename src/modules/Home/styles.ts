@@ -2,10 +2,11 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  padding: 6.5rem 0 0 0;
+  padding: 104px 0 0 0;
 `;
 
 export const Content = styled.div`
@@ -13,7 +14,7 @@ export const Content = styled.div`
   justify-content: center;
 
   width: 100%;
-  max-width: 1440px;
+  max-width: 1800px;
 
   padding: 0 1.875rem;
 

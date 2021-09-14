@@ -20,7 +20,7 @@ export const Content = styled.div`
   position: relative;
 
   width: 100%;
-  max-width: 1440px;
+  max-width: 1800px;
   padding: 20px 30px;
 
   .search {
