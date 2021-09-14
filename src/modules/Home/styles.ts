@@ -11,12 +11,11 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 0;
 
   width: 100%;
   max-width: 1800px;
-
-  padding: 0 1.875rem;
 
   color: #fff;
 
