@@ -3,17 +3,18 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
 
-  max-width: 1200px;
+  max-width: 500px;
   width: 100%;
   height: 3.75rem;
   padding: 0 32px;
 
   border-radius: 32px;
-  border: 1px solid var(--blue-aqua);
+  border: 1px solid var(--green-aqua);
+  background: var(--white);
 
   input,
   svg {
-    color: var(--blue-aqua);
+    color: var(--green-aqua);
   }
 
   input {

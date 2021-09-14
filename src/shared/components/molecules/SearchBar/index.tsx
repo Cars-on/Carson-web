@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { InputHTMLAttributes, useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
 
 import { Container } from './styles';
 
-interface ISearchBarProps {
+interface ISearchBarProps extends InputHTMLAttributes<HTMLInputElement> {
   className?: string;
 }
 
-const SearchBar = ({ className }: ISearchBarProps) => {
+const SearchBar = ({ className, ...rest }: ISearchBarProps) => {
   const [searchValue, setSearchValue] = useState('');
 
   function handleUserSearch(e: any) {
@@ -19,8 +19,8 @@ const SearchBar = ({ className }: ISearchBarProps) => {
       <input
         type="text"
         value={searchValue}
-        placeholder="Digite o modelo, cor, ano, marca..."
         onChange={handleUserSearch}
+        {...rest}
       />
       <button type="button">
         <FiSearch />

@@ -44,7 +44,7 @@ export const Container = styled.button<IContainerProps>`
       padding: 10px 24px;
 
       span {
-        color: var(--blue-aqua);
+        color: var(--green-aqua);
       }
     `}
 
@@ -58,7 +58,7 @@ export const Container = styled.button<IContainerProps>`
     box-sizing: content-box;
 
     background: var(--white);
-    color: var(--blue-aqua);
+    color: var(--green-aqua);
   }
 
   transition: 0.3s transform;
