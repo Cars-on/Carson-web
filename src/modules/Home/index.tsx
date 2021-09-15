@@ -1,13 +1,14 @@
-import React from 'react'
+import React from 'react';
+import Hero from '@/shared/components/molecules/Hero';
 
-import { Container } from './styles'
+import { Container, Content } from './styles';
 
-const Home = () => {
-  return (
-    <Container>
-      Welcome to Home Page
-    </Container>
-  )
-}
+const Home = () => (
+  <Container>
+    <Hero />
 
-export default Home
+    <Content />
+  </Container>
+);
+
+export default Home;
