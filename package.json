@@ -15,10 +15,15 @@
     "next-images": "^1.8.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-icons": "^4.2.0",
+    "react-dropzone": "^11.4.0",
     "styled-components": "^5.3.1"
   },
   "devDependencies": {
+    "css-loader": "^6.2.0",
+    "style-loader": "^3.2.1",
+    "webpack-cli": "^4.8.0",
+    "react-icons": "^4.2.0",
+    "styled-components": "^5.3.1",
     "@types/react": "17.0.19",
     "@typescript-eslint/eslint-plugin": "^4.30.0",
     "@typescript-eslint/parser": "^4.30.0",
