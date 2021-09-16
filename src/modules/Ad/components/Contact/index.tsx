@@ -1,27 +1,37 @@
-import React from 'react';
-
-import userPhoto from '@/shared/assets/people/leo-photo.png';
-import phoneIcone from '@/shared/assets/icons/phone-icon.png';
+import React, { HTMLAttributes } from 'react';
 import Button from '@/shared/components/atoms/Button';
+import shieldIcon from '@/shared/assets/icons/shield-icon.png';
+import phoneIcone from '@/shared/assets/icons/phone-icon.png';
 
 import { Container } from './styles';
 
-const Contact: React.FC = () => {
+interface IContactProps extends HTMLAttributes<HTMLElement> {
+  photo?: string;
+  name: string;
+  phone: string;
+}
+
+const Contact = ({ photo, name, phone }: IContactProps) => {
   return (
     <Container>
-      <div className="content">
-        <div className="user-info">
-          <img src={userPhoto} alt="" />
-          <div className="name-and-contact">
-            <h2>Leonardo Messias</h2>
-            <p>
-              <img src={phoneIcone} alt="Phone Icon" />
-              (12) 998888-7777
-            </p>
-          </div>
-          <Button>Enviar Mensagem</Button>
+      <div className="user-info">
+        <div className="user-photo">
+          <img src={photo} alt="" />
         </div>
-        Chat Contact
+        <div className="name-and-contact">
+          <h2>{name}</h2>
+          <p>
+            <img src={phoneIcone} alt="Phone Icon" />
+            {phone}
+          </p>
+        </div>
+      </div>
+      <div className="send-message">
+        <Button>Enviar Mensagem</Button>
+      </div>
+      <div className="security-advice">
+        <img src={shieldIcon} alt="Dica de Segurança" />
+        <p>Não faça pagamentos antes de verificar se o veículo existe.</p>
       </div>
     </Container>
   );
