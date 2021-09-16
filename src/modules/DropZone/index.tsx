@@ -1,7 +1,6 @@
 import React, { ReactNode, useMemo } from 'react';
 import { FileWithPath, useDropzone } from 'react-dropzone';
 
-import Topbar from '@/shared/components/molecules/Topbar';
 import Button from '@/shared/components/atoms/Button';
 
 import { Container } from './styles';
@@ -63,7 +62,6 @@ export default function Basic(props: any) {
 
   return (
     <Container>
-      <Topbar />
       <div className="content">
         <div className="drag-and-drop">
           <div className="section-title">
