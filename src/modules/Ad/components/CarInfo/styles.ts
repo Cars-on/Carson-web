@@ -8,6 +8,7 @@ export const Container = styled.div`
 
   .images {
     .main-image {
+      overflow-y: hidden;
       width: 400px;
       height: 400px;
 

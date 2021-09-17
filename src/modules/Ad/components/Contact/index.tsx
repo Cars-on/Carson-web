@@ -6,18 +6,14 @@ import phoneIcone from '@/shared/assets/icons/phone-icon.png';
 import { Container } from './styles';
 
 interface IContactProps extends HTMLAttributes<HTMLElement> {
-  photo?: string;
   name: string;
   phone: string;
 }
 
-const Contact = ({ photo, name, phone }: IContactProps) => {
+const Contact = ({ name, phone }: IContactProps) => {
   return (
     <Container>
       <div className="user-info">
-        <div className="user-photo">
-          <img src={photo} alt="" />
-        </div>
         <div className="name-and-contact">
           <h2>{name}</h2>
           <p>

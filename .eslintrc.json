@@ -19,9 +19,9 @@
   },
   "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier"],
   "rules": {
+    "eslint-disable": "@typescript-eslint/ban-types",
     "eslint-disable-next-line": "off",
     "arrow-body-style": "off",
-    "prettier/prettier": "off",
     "react/self-closing-comp": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",

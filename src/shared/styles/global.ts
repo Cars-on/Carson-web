@@ -26,7 +26,9 @@ export const GlobalStyle = createGlobalStyle`
     outline: none;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
+
 
   body {
     width: 100vw;
@@ -37,6 +39,7 @@ export const GlobalStyle = createGlobalStyle`
 
   #__next {
     display:flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 

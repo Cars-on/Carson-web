@@ -5,20 +5,23 @@ export const Container = styled.div`
   align-items: flex-start;
   justify-content: center;
   background: #fafafa;
-  max-width: 1400px;
   width: 100%;
-  height: 100vh;
-  overflow-x: hidden;
 
   .content {
     display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     margin-top: 10rem;
-    padding: 2rem;
-    border-radius: 2rem;
-
     width: 100vw;
+
+    .ad-info {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      column-gap: 4rem;
+      max-width: 1400px;
+      width: 100%;
+    }
   }
 `;
