@@ -64,4 +64,8 @@ export const Container = styled.div`
       column-gap: 0.5rem;
     }
   }
+
+  @media (max-width: 400px) {
+    zoom: 67%;
+  }
 `;

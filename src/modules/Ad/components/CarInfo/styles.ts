@@ -8,9 +8,9 @@ export const Container = styled.div`
 
   .images {
     .main-image {
-      overflow-y: hidden;
       width: 400px;
       height: 400px;
+      overflow: hidden;
 
       img {
         cursor: pointer;
@@ -65,6 +65,36 @@ export const Container = styled.div`
       font-size: 16px;
       color: #0b2926;
       column-gap: 0.5rem;
+    }
+  }
+
+  @media (max-width: 780px) {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 2rem;
+
+    .images {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .details {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .images {
+      zoom: 67%;
     }
   }
 `;

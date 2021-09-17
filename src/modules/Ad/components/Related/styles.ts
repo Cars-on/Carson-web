@@ -41,4 +41,13 @@ export const Container = styled.div`
       column-gap: 48px;
     }
   }
+
+  @media (max-width: 1440px) {
+    .related {
+      .related-cars {
+        flex-wrap: wrap;
+        row-gap: 2.25rem;
+      }
+    }
+  }
 `;
