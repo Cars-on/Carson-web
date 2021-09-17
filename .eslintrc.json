@@ -21,7 +21,6 @@
   "rules": {
     "eslint-disable-next-line": "off",
     "arrow-body-style": "off",
-    "prettier/prettier": "off",
     "react/self-closing-comp": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
@@ -33,6 +32,7 @@
     "implicit-arrow-linebreak": "off",
     "no-confusing-arrow": "off",
     "object-curly-newline": "off",
+    "react/jsx-one-expression-per-line": "off",
     "arrow-parens": "off",
     "react/jsx-filename-extension": [
       1,

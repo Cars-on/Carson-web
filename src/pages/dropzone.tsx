@@ -1,6 +1,6 @@
-import type { NextPage } from "next";
+import type { NextPage } from 'next';
 
-import DropZoneModule from "@/modules/DropZone";
+import DropZoneModule from '@/modules/DropZone';
 
 const DropZone: NextPage = () => {
   return (
