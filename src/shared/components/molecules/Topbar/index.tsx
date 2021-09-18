@@ -43,13 +43,13 @@ const Topbar: React.FC<ITopbar> = ({ setToastVisibility }: ITopbar) => {
 
           {!isMobile && (
             <section className="options">
-              <Link href="/dropzone">
-                <Button primary>Adicionar CSV</Button>
+              <Link href="/register_users">
+                <Button primary>Adicionar Usuários</Button>
               </Link>
 
-              <Button onClick={() => setToastVisibility(true)} primary>
-                Anunciar
-              </Button>
+              <Link href="/register_ads">
+                <Button primary>Anunciar</Button>
+              </Link>
 
               <Button
                 onClick={() => setToastVisibility(true)}
