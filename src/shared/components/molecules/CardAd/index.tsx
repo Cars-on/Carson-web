@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 import { Container } from './styles';
 
@@ -20,8 +21,9 @@ const CardAd = () => {
         </section>
 
         <p>Campinas - SP</p>
-
-        <button type="button">Comprar</button>
+        <Link href="/ad">
+          <button type="button">Comprar</button>
+        </Link>
       </section>
     </Container>
   );

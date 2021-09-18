@@ -6,7 +6,6 @@ export const Container = styled.div`
   justify-content: center;
 
   width: 100%;
-  height: 104px;
   position: absolute;
   top: 0;
 
@@ -21,7 +20,7 @@ export const Content = styled.div`
 
   width: 100%;
   max-width: 1800px;
-  padding: 20px 30px;
+  padding: 1.25rem 1.875rem;
 
   .search {
     display: flex;
@@ -32,8 +31,15 @@ export const Content = styled.div`
     margin-right: 20px;
 
     > img {
+      transition: all 0.3s;
       width: 9.375rem;
       margin-right: 20px;
+    }
+
+    > img:hover {
+      cursor: pointer;
+      transition: all 0.3s;
+      transform: scale(1.1);
     }
 
     @media (max-width: 650px) {
@@ -45,7 +51,7 @@ export const Content = styled.div`
 
   .options {
     display: flex;
-    gap: 32px;
+    column-gap: 2rem;
   }
 `;
 

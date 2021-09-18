@@ -8,6 +8,8 @@ export const Container = styled.div`
 
   height: 400px;
   width: 100vw;
+
+  margin-top: -40px;
 `;
 
 export const Content = styled.div`
@@ -17,7 +19,6 @@ export const Content = styled.div`
   align-items: center;
 
   width: 100%;
-  max-width: 1800px;
 
   background-image: url(${manDriving});
   background-repeat: no-repeat;
