@@ -11,7 +11,7 @@ import MobileMenuModal from './MobileMenuModal';
 
 import { Container, Content, SidebarMenu } from './styles';
 
-const Topbar = () => {
+const Topbar: React.FC = () => {
   const isMobile = useIsMobile();
 
   const [showMenuMobile, setMenuMobile] = useState(false);

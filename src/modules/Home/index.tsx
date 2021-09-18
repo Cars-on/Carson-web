@@ -6,7 +6,7 @@ import SidebarFilters from '@/shared/components/molecules/SidebarFilters';
 import Adverts from './Adverts';
 import { Container, Content } from './styles';
 
-const Home = () => (
+const Home: React.FC = () => (
   <Container>
     <Hero />
     <Content>

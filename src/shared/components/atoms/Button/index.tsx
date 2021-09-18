@@ -10,7 +10,7 @@ interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   angle?: 'horizontal' | 'vertical';
 }
 
-const Button = ({
+const Button: React.FC<IButtonProps> = ({
   children,
   primary,
   icon: Icon,

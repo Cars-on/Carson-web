@@ -7,7 +7,7 @@ interface ISearchBarProps extends InputHTMLAttributes<HTMLInputElement> {
   className?: string;
 }
 
-const SearchBar = ({ className, ...rest }: ISearchBarProps) => {
+const SearchBar: React.FC<ISearchBarProps> = ({ className, ...rest }: ISearchBarProps) => {
   const [searchValue, setSearchValue] = useState('');
 
   function handleUserSearch(e: any) {

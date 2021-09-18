@@ -3,7 +3,7 @@ import { FiMessageCircle, FiShoppingBag, FiUser } from 'react-icons/fi';
 
 import { Container } from './styles';
 
-const MobileMenuModal = () => {
+const MobileMenuModal: React.FC = () => {
   return (
     <Container>
       <ul>

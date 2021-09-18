@@ -4,7 +4,7 @@ import CardAd from '@/shared/components/molecules/CardAd';
 
 import { Container, Content } from './styles';
 
-const Adverts = () => {
+const Adverts: React.FC = () => {
   return (
     <Container>
       <Content>
