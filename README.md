@@ -1,16 +1,9 @@
 ![car-on-wallpaper 1](https://user-images.githubusercontent.com/55189046/133905993-09453f58-249f-429e-a097-4dc3f84a9108.png)
 
-### Rodando o projeto
-
-Primeiramente será necessário clonar o repositório do back-end que está disponível no link abaixo. Neste repositório estão contidas todas as orientações para a execução da API que será consumida.
-
-[Back-end](https://github.com/Cars-on/Carson-api)
-
-#### AVISO: É necessário ter o servidor do backend rodando para o funcionamento de algumas features
-
 ## Como rodar o projeto
 
-Para rodar é essencial que tenha o [node](https://nodejs.org/en/) instalado, caso não tenha siga o passo a passo logo abaixo
+
+Para rodar o servidor do Frontend é essencial que tenha o [node](https://nodejs.org/en/) instalado, caso não tenha siga o passo a passo logo abaixo
 
 #### Ubuntu 
 ```
@@ -52,6 +45,12 @@ npm start
 ```
 
 A aplicação rodará na porta 3000 do seu localhost -> [http://localhost:3000](http://localhost:3000/)
+
+#### AVISO: É necessário ter o servidor do backend rodando para o funcionamento de algumas features
+
+Primeiramente será necessário clonar o repositório do back-end que está disponível no link abaixo. Neste repositório estão contidas todas as orientações para a execução da API que será consumida.
+
+[Back-end](https://github.com/Cars-on/Carson-api)
 
 ## Tecnologias e bibliotecas
 * [`typescript`](https://www.typescriptlang.org/)
