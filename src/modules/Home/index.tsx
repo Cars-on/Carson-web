@@ -1,13 +1,18 @@
 import React from 'react';
-import Hero from '@/shared/components/molecules/Hero';
 
+import Hero from '@/shared/components/molecules/Hero';
+import SidebarFilters from '@/shared/components/molecules/SidebarFilters';
+
+import Adverts from './Adverts';
 import { Container, Content } from './styles';
 
 const Home = () => (
   <Container>
     <Hero />
-
-    <Content />
+    <Content>
+      <SidebarFilters />
+      <Adverts />
+    </Content>
   </Container>
 );
 

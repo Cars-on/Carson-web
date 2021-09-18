@@ -3,7 +3,7 @@ import NextHead from 'next/head';
 
 const Head: React.FC = () => (
   <NextHead>
-    <link rel="icon" href="/favicon.svg" />
+    <link rel="icon" href="/favicon-cars-on.svg" />
     <meta name="theme-color" content="#5F41D9" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
