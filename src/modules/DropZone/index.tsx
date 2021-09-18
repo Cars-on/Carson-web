@@ -1,10 +1,7 @@
 import React, { ReactNode, useMemo, useState } from 'react';
 import { FileWithPath, useDropzone } from 'react-dropzone';
 
-import Topbar from '@/shared/components/molecules/Topbar';
 import Button from '@/shared/components/atoms/Button';
-
-import { api } from '@/shared/providers/api';
 
 import { Container } from './styles';
 import useUploadUsersModal from '@/shared/hooks/useUploadUsersModal';
@@ -69,7 +66,6 @@ export default function Basic() {
   return (
     <>
       <Container>
-        <Topbar />
         <div className="content">
           <div className="drag-and-drop">
             <div className="section-title">

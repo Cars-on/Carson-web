@@ -11,7 +11,7 @@ export const Container = styled.div`
     gap: 14px;
 
     padding: 0 0 0 17px;
-    border-left: 4px solid #a4b3b5;
+    border-left: 1px solid #a4b3b5;
 
     h1 {
       font-family: Archivo;
