@@ -1,34 +1,65 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![car-on-wallpaper 1](https://user-images.githubusercontent.com/55189046/133905993-09453f58-249f-429e-a097-4dc3f84a9108.png)
 
-## Getting Started
+### Rodando o projeto
 
-First, run the development server:
+Primeiramente será necessário clonar o repositório do back-end que está disponível no link abaixo. Neste repositório estão contidas todas as orientações para a execução da API que será consumida.
 
-```bash
-npm run dev
-# or
-yarn dev
+[Back-end](https://github.com/Cars-on/Carson-api)
+
+#### AVISO: É necessário ter o servidor do backend rodando para o funcionamento de algumas features
+
+## Como rodar o projeto
+
+Para rodar é essencial que tenha o [node](https://nodejs.org/en/) instalado, caso não tenha siga o passo a passo logo abaixo
+
+#### Ubuntu 
+```
+curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+sudo apt-get install -y nodejs
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### Debian, as root
+```
+curl -fsSL https://deb.nodesource.com/setup_14.x | bash -
+apt-get install -y nodejs
+```
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+#### [Outra distribuição Linux](https://nodejs.org/en/download/package-manager/)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+#### Windows
+Acesse o site do [NodeJs](https://nodejs.org/en/) e instale a versão LTS
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Com tudo já instalado primeiro faça o clone deste repositório
+```
+https://github.com/Cars-on/Carson-web.git
+```
 
-## Learn More
+Acesse a pasta do repositório pelo terminal
+```
+  cd Carson-web
+```
 
-To learn more about Next.js, take a look at the following resources:
+Agora instale as dependencias do projeto
+```yarn``` ou ```npm install```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Apos ter instalado as dependencias do projeto é necessário rodar o servidor local do projeto
+```
+yarn start
+```
+ou
+```
+npm start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+A aplicação rodará na porta 3000 do seu localhost -> [http://localhost:3000](http://localhost:3000/)
 
-## Deploy on Vercel
+## Tecnologias e bibliotecas
+* [`typescript`](https://www.typescriptlang.org/)
+* [`eslint`](https://eslint.org/)
+* [`contextApi`](https://pt-br.reactjs.org/docs/context.html)
+* [`react-icons`](https://react-icons.github.io/react-icons/)
+* [`axios`](https://github.com/axios/axios)
+* [`styled-components`](https://styled-components.com/)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
