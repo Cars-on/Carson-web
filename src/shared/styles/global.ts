@@ -26,7 +26,6 @@ export const GlobalStyle = createGlobalStyle`
     outline: none;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
   }
 
 

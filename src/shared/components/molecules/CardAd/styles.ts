@@ -1,8 +1,14 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  transition: all 0.3s;
   display: flex;
   flex-direction: column;
+
+  :hover {
+    transition: all 0.3s;
+    transform: scale(1.02);
+  }
 
   section.infos {
     display: flex;
@@ -24,13 +30,13 @@ export const Container = styled.div`
     }
 
     span {
-      font-family: Big Shoulders Display;
+      font-family: 'Big Shoulders Display';
       font-style: normal;
       font-weight: bold;
       font-size: 18px;
       line-height: 22px;
 
-      color: #000000;
+      color: #0b2926;
     }
 
     p {
@@ -40,10 +46,12 @@ export const Container = styled.div`
       font-size: 14px;
       line-height: 15px;
 
-      color: #000000;
+      color: #0b2926;
     }
 
     button {
+      transition: all 0.3s;
+
       width: 212px;
       height: 48px;
 
@@ -56,6 +64,11 @@ export const Container = styled.div`
       font-weight: bold;
       font-size: 18px;
       line-height: 20px;
+    }
+
+    button:hover {
+      transition: all 0.3s;
+      transform: scale(1.1);
     }
   }
 
