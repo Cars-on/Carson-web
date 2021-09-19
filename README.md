@@ -1,4 +1,4 @@
-![car-on-wallpaper 1](https://user-images.githubusercontent.com/55189046/133905993-09453f58-249f-429e-a097-4dc3f84a9108.png)
+![thumbnail-github-carson-front](https://user-images.githubusercontent.com/54003876/133915603-84a02ac8-f7a3-4c90-bca8-dca231fe6778.png)
 
 ## Como rodar o projeto
 
