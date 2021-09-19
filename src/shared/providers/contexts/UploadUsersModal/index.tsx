@@ -8,10 +8,11 @@ import { api } from '../../api';
 const UploadUsersModalProvider: React.FC<IUploadUsersModalProvider> = ({
   children,
 }: IUploadUsersModalProvider) => {
-  const [csvLot, setCsvLot] = useState('');
-  const [csvMessage, setCsvMessage] = useState('');
-  const [csvIsLoading, setCsvIsLoading] = useState(false);
-  const [showUploadUsersModal, setShowUploadUsersModal] = useState(false);
+  const [csvLot, setCsvLot] = useState<string>('');
+  const [csvMessage, setCsvMessage] = useState<string>('');
+  const [csvIsLoading, setCsvIsLoading] = useState<boolean>(false);
+  const [showUploadUsersModal, setShowUploadUsersModal] =
+    useState<boolean>(false);
 
   const closeUploadUsersModal = useCallback(() => {
     setShowUploadUsersModal(false);

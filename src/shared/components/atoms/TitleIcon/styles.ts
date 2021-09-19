@@ -3,6 +3,12 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   align-items: center;
+
+  svg {
+    height: 1.5rem;
+    font-size: 1.5rem;
+    color: #0b2926;
+  }
 `;
 
 export const Title = styled.p`
@@ -11,7 +17,9 @@ export const Title = styled.p`
   font-style: normal;
   font-weight: 400;
   line-height: 1.25rem;
-  color: black;
+  color: #0b2926;
+
+  padding: 0 0 0 1rem;
 `;
 
 export const Image = styled.img`
