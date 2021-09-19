@@ -13,21 +13,37 @@ export const Container = styled.div<HTMLAttributes<HTMLDivElement>>`
   position: relative;
   width: 9.375rem;
   height: 2.5rem;
+
+  margin: 0 1rem 0 0;
+
+  &:last-child {
+    margin: 0;
+  }
 `;
 
-export const Text = styled.p<HTMLAttributes<HTMLParagraphElement>>``;
+export const Text = styled.p<HTMLAttributes<HTMLParagraphElement>>`
+  color: #a4b3b5;
+`;
 
-export const CloseButton = styled.div<ButtonHTMLAttributes<HTMLButtonElement>>`
+export const CloseButton = styled.button<
+  ButtonHTMLAttributes<HTMLButtonElement>
+>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 1.5rem;
+  height: 1.5rem;
+
   position: absolute;
-  padding: 0.531rem;
   right: 0.5rem;
 
+  border: none;
+  border-radius: 2rem;
   background: #f6f6f6;
-  border-radius: 100%;
 
   svg {
-    color: #a4b3b5;
-    height: 0.5rem;
-    font-size: 0.5rem;
+    fill: #a4b3b5;
+    font-size: 1rem;
   }
 `;

@@ -5,6 +5,8 @@ export const Container = styled.div<HTMLAttributes<HTMLDivElement>>`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  cursor: pointer;
 `;
 
 export const Text = styled.p`

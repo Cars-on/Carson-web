@@ -13,13 +13,6 @@ const StateFilterContent: React.FC = () => {
       <StateCheckboxItem value="BH" />
       <StateCheckboxItem value="BA" />
       <StateCheckboxItem value="RS" />
-      <StateCheckboxItem value="SP" />
-      <StateCheckboxItem value="RJ" />
-      <StateCheckboxItem value="MT" />
-      <StateCheckboxItem value="MG" />
-      <StateCheckboxItem value="BH" />
-      <StateCheckboxItem value="BA" />
-      <StateCheckboxItem value="RS" />
     </Container>
   );
 };

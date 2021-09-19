@@ -1,4 +1,5 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
+import useSidebarFilter from '@/shared/hooks/useSidebarFilter';
 
 import { InputCheckbox } from './styles';
 
@@ -11,12 +12,37 @@ const StateCheckboxItem: React.FC<IStateCheckboxItemProps> = ({
 }: IStateCheckboxItemProps) => {
   const [checked, setChecked] = useState(false);
 
+  const { filtersValue, fetchFilterValue, removeFilterValue } =
+    useSidebarFilter();
+
   const handleCheckbox = useCallback(() => {
     setChecked(prevState => !prevState);
   }, [setChecked]);
 
+  const handleSelectFilter = useCallback(() => {
+    if (!checked) {
+      fetchFilterValue(value);
+    } else {
+      removeFilterValue(value);
+    }
+  }, [checked, fetchFilterValue, removeFilterValue]);
+
+  useEffect(() => {
+    if (filtersValue.includes(value)) {
+      setChecked(true);
+    } else {
+      setChecked(false);
+    }
+  }, [filtersValue, setChecked]);
+
   return (
-    <InputCheckbox checked={checked} onClick={handleCheckbox}>
+    <InputCheckbox
+      checked={checked}
+      onClick={() => {
+        handleCheckbox();
+        handleSelectFilter();
+      }}
+    >
       {value}
     </InputCheckbox>
   );

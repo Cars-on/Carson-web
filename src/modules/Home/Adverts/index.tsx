@@ -4,11 +4,15 @@ import CardAd from '@/shared/components/molecules/CardAd';
 import FilterSelected from '@/shared/components/molecules/FilterSelected';
 
 import { Container, Content } from './styles';
+import useSidebarFilter from '@/shared/hooks/useSidebarFilter';
 
 const Adverts: React.FC = () => {
+  const { filtersValue } = useSidebarFilter();
+  console.log(filtersValue);
+
   return (
     <Container>
-      <FilterSelected />
+      {filtersValue.length && <FilterSelected />}
 
       <Content>
         <CardAd />

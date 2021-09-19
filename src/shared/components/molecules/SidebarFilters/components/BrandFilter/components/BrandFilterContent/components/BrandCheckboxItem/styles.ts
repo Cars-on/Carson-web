@@ -12,6 +12,14 @@ export const InputCheckbox = styled.div<IInputCheckboxProps>`
   justify-content: center;
 
   cursor: pointer;
+
+  ${props =>
+    props.checked &&
+    css`
+      border: 2px solid #a4b3b5;
+      padding: 0.5rem;
+      border-radius: 2rem;
+    `}
 `;
 
 export const Text = styled.p<HTMLAttributes<HTMLParagraphElement>>`

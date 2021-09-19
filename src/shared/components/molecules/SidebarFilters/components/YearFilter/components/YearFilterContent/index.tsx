@@ -1,7 +1,8 @@
-import React from 'react';
-import Input from '../../../../../../atoms/Input';
+import React, { useCallback, useEffect, useState } from 'react';
 
+import Input from '@/shared/components/atoms/Input';
 import { Container } from './styles';
+import useSidebarFilter from '@/shared/hooks/useSidebarFilter';
 
 const YearFilterContent: React.FC = () => {
   return (

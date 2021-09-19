@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 
 import { ISidebarFilterProvider } from './dto';
 
@@ -9,8 +9,30 @@ const SidebarFilterProvider: React.FC<ISidebarFilterProvider> = ({
 }: ISidebarFilterProvider) => {
   const [filtersValue, setFiltersValue] = useState<Array<string>>([]);
 
+  const fetchFilterValue = useCallback(
+    (value: string) => {
+      setFiltersValue(prevState => [...prevState, value]);
+    },
+    [setFiltersValue],
+  );
+
+  const removeFilterValue = useCallback(
+    (value: string) => {
+      const newFilterValues = filtersValue.filter(filter => filter !== value);
+
+      setFiltersValue(newFilterValues);
+    },
+    [filtersValue, setFiltersValue],
+  );
+
   return (
-    <SidebarFilterContext.Provider value={{}}>
+    <SidebarFilterContext.Provider
+      value={{
+        filtersValue,
+        fetchFilterValue,
+        removeFilterValue,
+      }}
+    >
       {children}
     </SidebarFilterContext.Provider>
   );

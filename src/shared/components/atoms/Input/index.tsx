@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { InputHTMLAttributes } from 'react';
 
 import { Container, InputContainer, Text } from './styles';
 
-interface IInputProps {
+interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   placeholder: string;
   example: string;
 }
