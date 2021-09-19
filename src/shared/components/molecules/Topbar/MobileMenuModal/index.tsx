@@ -26,7 +26,7 @@ const MobileMenuModal = ({ onClose }: MobileMenuModalProps) => {
             Anunciar
           </li>
         </Link>
-        <Link href="/register_users">
+        <Link href="/register-users">
           <li onClick={handleCloseModal}>
             <FiShoppingBag />
             Adicionar Usuários

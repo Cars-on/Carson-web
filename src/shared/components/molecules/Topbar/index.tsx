@@ -45,11 +45,11 @@ const Topbar: React.FC<ITopbar> = ({ setToastVisibility }: ITopbar) => {
 
           {!isMobile && (
             <section className="options">
-              <Link href="/register_users">
+              <Link href="/register-users">
                 <Button primary>Adicionar Usuários</Button>
               </Link>
 
-              <Link href="/register_ads">
+              <Link href="/register-ads">
                 <Button primary>Anunciar</Button>
               </Link>
 
