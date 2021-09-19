@@ -65,6 +65,7 @@ export const Modal = styled.div`
     max-width: none;
     max-height: none;
     border-radius: 0;
+
     padding: 0 20px;
   }
 

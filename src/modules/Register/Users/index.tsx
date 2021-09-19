@@ -16,6 +16,7 @@ export default function RegisterUsers() {
   const { onDrop } = useUploadUsersModal();
 
   const {
+    acceptedFiles,
     getRootProps,
     getInputProps,
     isDragActive,
@@ -46,11 +47,7 @@ export default function RegisterUsers() {
               <p>Faça upload aqui.</p>
             </div>
             <div {...getRootProps({ style })}>
-              <input
-                {...getInputProps()}
-                onSubmit={e => console.log(e, '##')}
-                onChange={e => console.log(e, '##')}
-              />
+              <input {...getInputProps()} />
               <p>
                 Arraste e solte ou <strong>clique aqui</strong> e procure nos
                 seus arquivos
@@ -59,6 +56,10 @@ export default function RegisterUsers() {
             <aside>
               <Button primary>Enviar</Button>
             </aside>
+            <div className="files-ready">
+              <h4>Arquivos Prontos:</h4>
+              <ul>{fileList(acceptedFiles)}</ul>
+            </div>
           </div>
         </div>
       </Container>

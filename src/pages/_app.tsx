@@ -6,6 +6,7 @@ import Head from '@/shared/seo/Head';
 import Topbar from '@/shared/components/molecules/Topbar';
 import ContextProvider from '@/shared/providers/contexts';
 import UploadUsersModal from '@/shared/components/organisms/UploadUsersModal';
+import UploadAdsModal from '@/shared/components/organisms/UploadAdsModal ';
 import Copyrights from '@/shared/components/molecules/Copyrights';
 import ToastNotification from '@/shared/components/molecules/ToastNotification';
 import ToastNotificationContext from '@/shared/components/molecules/ToastNotification/ToastNotificationContext';
@@ -37,6 +38,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
         <ContextProvider>
           <UploadUsersModal />
+          <UploadAdsModal />
 
           <Head />
           <Topbar setToastVisibility={setToastVisibility} />
