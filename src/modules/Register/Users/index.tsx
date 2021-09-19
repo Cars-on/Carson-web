@@ -24,8 +24,6 @@ export default function RegisterUsers() {
     isDragReject,
   } = useDropzone({ onDrop });
 
-  console.log(onDrop, 'ondrop');
-
   const style: any = useMemo(
     () => ({
       ...baseStyle,
