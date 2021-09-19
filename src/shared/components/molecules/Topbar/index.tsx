@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { FiMessageCircle, FiUser } from 'react-icons/fi';
 
 import useIsMobile from '@/shared/hooks/useIsMobile';
@@ -11,7 +12,11 @@ import MobileMenuModal from './MobileMenuModal';
 
 import { Container, Content, SidebarMenu } from './styles';
 
-const Topbar: React.FC = () => {
+interface ITopbar {
+  setToastVisibility: (visible: boolean) => void;
+}
+
+const Topbar: React.FC<ITopbar> = ({ setToastVisibility }: ITopbar) => {
   const isMobile = useIsMobile();
 
   const [showMenuMobile, setMenuMobile] = useState(false);
@@ -22,12 +27,16 @@ const Topbar: React.FC = () => {
 
   return (
     <>
-      {isMobile && showMenuMobile && <MobileMenuModal />}
+      {isMobile && showMenuMobile && (
+        <MobileMenuModal onClose={handleOpenMenuMobile} />
+      )}
 
       <Container>
         <Content>
           <section className="search">
-            <img src={logo} alt="logo" />
+            <Link href="/">
+              <img src={logo} alt="logo" />
+            </Link>
             <SearchBar
               placeholder="Digite o modelo ou marca..."
               className="search_bar"
@@ -36,12 +45,26 @@ const Topbar: React.FC = () => {
 
           {!isMobile && (
             <section className="options">
-              <Button primary>Anunciar</Button>
+              <Link href="/register_users">
+                <Button primary>Adicionar Usuários</Button>
+              </Link>
 
-              <Button primary icon={FiMessageCircle}>
+              <Link href="/register_ads">
+                <Button primary>Anunciar</Button>
+              </Link>
+
+              <Button
+                onClick={() => setToastVisibility(true)}
+                primary
+                icon={FiMessageCircle}
+              >
                 Chat
               </Button>
-              <Button primary icon={FiUser}>
+              <Button
+                onClick={() => setToastVisibility(true)}
+                primary
+                icon={FiUser}
+              >
                 Entrar
               </Button>
             </section>

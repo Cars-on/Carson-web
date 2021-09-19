@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -5,7 +6,7 @@ export const Container = styled.div`
   align-items: flex-start;
   justify-content: center;
   background: #fafafa;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   overflow-x: hidden;
 
@@ -82,3 +83,35 @@ export const Container = styled.div`
     }
   }
 `;
+
+export const baseStyle = {
+  flex: 1,
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  padding: '20px',
+  border: '1px dashed #A4B3B5',
+  borderWidth: 2,
+  borderRadius: '1rem',
+  borderColor: '#eeeeee',
+  backgroundColor: 'rgba(56, 188, 172, 0.05)',
+  color: '#bdbdbd',
+  outline: 'none',
+  transition: 'border .24s ease-in-out',
+  width: '40rem',
+  minHeight: '12rem',
+  cursor: 'pointer',
+};
+
+export const activeStyle = {
+  borderColor: '#A4B3B5;',
+};
+
+export const acceptStyle = {
+  borderColor: '#38bcac',
+};
+
+export const rejectStyle = {
+  borderColor: '#ff1744',
+};

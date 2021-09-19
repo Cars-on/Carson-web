@@ -6,10 +6,10 @@ export const Container = styled.div`
 
   position: absolute;
   z-index: 9;
-  top: 104px;
+  top: 70px;
 
-  height: calc(100vh - 104px);
-  width: 100vw;
+  height: calc(100vh - 70px);
+  width: 100%;
 
   background: #fff;
 
