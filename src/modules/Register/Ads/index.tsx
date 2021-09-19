@@ -2,7 +2,7 @@ import React, { ReactNode, useMemo, useState } from 'react';
 import { FileWithPath, useDropzone } from 'react-dropzone';
 
 import Button from '@/shared/components/atoms/Button';
-import useUploadUsersModal from '@/shared/hooks/useUploadUsersModal';
+import useUploadAdsModal from '@/shared/hooks/useUploadAdsModal';
 
 import {
   acceptStyle,
@@ -13,7 +13,7 @@ import {
 } from '../styles';
 
 export default function RegisterAds() {
-  const { onDrop } = useUploadUsersModal();
+  const { onDrop } = useUploadAdsModal();
 
   const {
     acceptedFiles,

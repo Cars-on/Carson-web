@@ -2,7 +2,7 @@
 import React from 'react';
 import { CSVLink } from 'react-csv';
 
-import { CsvLogProps, CsvLogs as ICsvLogs } from '../dto';
+import { CsvLogProps } from '../dto';
 import { Button } from '../styles';
 
 import {
@@ -20,13 +20,16 @@ interface CsvLogsProps {
 
 const CsvLogs = ({ logs }: CsvLogsProps) => {
   const headers = [
-    { label: 'cnpj', key: 'cnpj' },
-    { label: 'cpf', key: 'cpf' },
-    { label: 'nome', key: 'name' },
-    { label: 'apelido', key: 'user_name' },
-    { label: 'email', key: 'email' },
-    { label: 'telefone', key: 'phone' },
-    { label: 'endereço', key: 'address' },
+    { label: 'Nome do fabricante', key: 'manufacturer' },
+    { label: 'descrição marca do veículo', key: 'brand' },
+    { label: 'descrição modelo do veículo', key: 'model' },
+    { label: 'cod do anunciante', key: 'advertiser_code' },
+    { label: 'ano de fabricação', key: 'manufacturer_year' },
+    { label: 'ano do modelo', key: 'brand_year' },
+    { label: 'cpf do anunciante', key: 'cpf' },
+    { label: 'cnpj do anunciante', key: 'cnpj' },
+    { label: 'valor do veiculo', key: 'price' },
+    { label: 'descrição', key: 'description' },
     { label: 'erros', key: 'error' },
   ];
 
@@ -43,16 +46,20 @@ const CsvLogs = ({ logs }: CsvLogsProps) => {
             <SingleLog>
               <ErrorLogTitle>Linha: {log.line}</ErrorLogTitle>
 
-              {log.error.length > 0 &&
+              {typeof log.error === 'string' ? (
+                <ErrorLogDescription>{log.error}</ErrorLogDescription>
+              ) : (
+                log.error.length > 0 &&
                 log.error?.map(error => (
                   <ErrorLogDescription>{error}</ErrorLogDescription>
-                ))}
+                ))
+              )}
             </SingleLog>
           </>
         ))}
       </SectionLogs>
 
-      <CSVLink data={logs} headers={headers} filename={'usuarios-logs.csv'}>
+      <CSVLink data={logs} headers={headers} filename={'anuncios-logs.csv'}>
         <Button type="button">Baixar csv</Button>
       </CSVLink>
     </Container>

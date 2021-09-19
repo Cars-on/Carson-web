@@ -27,7 +27,9 @@ const Topbar: React.FC<ITopbar> = ({ setToastVisibility }: ITopbar) => {
 
   return (
     <>
-      {isMobile && showMenuMobile && <MobileMenuModal />}
+      {isMobile && showMenuMobile && (
+        <MobileMenuModal onClose={handleOpenMenuMobile} />
+      )}
 
       <Container>
         <Content>
