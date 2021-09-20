@@ -31,8 +31,6 @@ const Ad = ({ id }: IAd) => {
         );
 
         setAdOwner(users[0]);
-
-        console.log(users);
       } catch (error: any) {
         console.log(error?.response);
       }
@@ -58,7 +56,7 @@ const Ad = ({ id }: IAd) => {
               style: 'currency',
               currency: 'BRL',
             }).format(adData?.price)}
-            year={adData?.brand_year}
+            year={adData?.manufacturer_year}
             localization={adOwner.address}
             model={adData?.manufacturer}
             description={adData?.description}

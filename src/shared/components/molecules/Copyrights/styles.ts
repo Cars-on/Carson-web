@@ -13,4 +13,6 @@ export const Container = styled.div`
   font-family: Archivo;
   font-size: 12px;
   color: #0b2926;
+
+  margin-top: 6rem;
 `;

@@ -16,7 +16,9 @@ export const Content = styled.div`
   align-items: center;
 
   width: 100%;
-  max-width: 1035px;
+  max-width: 1055px;
 
   gap: 30px;
+
+  padding: 10px;
 `;

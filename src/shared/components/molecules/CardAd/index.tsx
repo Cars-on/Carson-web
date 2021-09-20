@@ -1,9 +1,64 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 import { Container } from './styles';
+import { api } from '@/shared/providers/api';
 
-const CardAd: React.FC = () => {
+interface IAnnouncement {
+  advertiser_code: string;
+  brand: string;
+  brand_year: string;
+  cnpj: string;
+  cpf: string;
+  created_at: string;
+  description: string;
+  id: string;
+  user_id: string;
+  lot: string;
+  manufacturer: string;
+  manufacturer_year: string;
+  model: string;
+  price: string;
+  updated_at: string;
+}
+
+interface IUser {
+  address: string;
+  cnpj: string;
+  cpf: string;
+  created_at: string;
+  email: string;
+  first_access: boolean;
+  id: string;
+  lot: string;
+  name: string;
+  password: string;
+  phone: string;
+  role: string;
+  updated_at: string;
+}
+
+interface CardAdProps {
+  announcement: IAnnouncement;
+}
+
+const CardAd = ({ announcement }: CardAdProps) => {
+  const [adOwner, setAdOwner] = useState<IUser>();
+
+  useEffect(() => {
+    async function getUserInfo() {
+      const usersResponse = await api.get('/users');
+
+      const users = usersResponse.data.filter(
+        (user: { id: any }) => user.id === announcement?.user_id,
+      );
+
+      setAdOwner(users[0]);
+    }
+
+    getUserInfo();
+  }, [announcement]);
+
   return (
     <Container>
       <img
@@ -12,16 +67,20 @@ const CardAd: React.FC = () => {
       />
 
       <section className="infos">
-        <h1>MERCEDES-BENZ GLE 350</h1>
-        <span>R$ 299.400</span>
+        <h1>{`${announcement?.manufacturer} ${announcement?.brand} ${announcement?.model}`}</h1>
+        <span>
+          {Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+          }).format(Number(announcement?.price))}
+        </span>
 
         <section>
-          <p>2017/2017</p>
-          <p>87940km</p>
+          <p>{announcement?.manufacturer_year}</p>
         </section>
 
-        <p>Campinas - SP</p>
-        <Link href="/ad">
+        <p>{adOwner?.address}</p>
+        <Link href={`/ad/${announcement?.id}`}>
           <button type="button">Comprar</button>
         </Link>
       </section>
