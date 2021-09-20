@@ -1,42 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 
-import { Container } from './styles';
+import car_thumb from '@/shared/assets/illustrations/thumbnail.png';
+
 import { api } from '@/shared/providers/api';
+import { IAnnouncement, IUser } from '@/shared/dto';
 
-interface IAnnouncement {
-  advertiser_code: string;
-  brand: string;
-  brand_year: string;
-  cnpj: string;
-  cpf: string;
-  created_at: string;
-  description: string;
-  id: string;
-  user_id: string;
-  lot: string;
-  manufacturer: string;
-  manufacturer_year: string;
-  model: string;
-  price: string;
-  updated_at: string;
-}
-
-interface IUser {
-  address: string;
-  cnpj: string;
-  cpf: string;
-  created_at: string;
-  email: string;
-  first_access: boolean;
-  id: string;
-  lot: string;
-  name: string;
-  password: string;
-  phone: string;
-  role: string;
-  updated_at: string;
-}
+import { Container } from './styles';
 
 interface CardAdProps {
   announcement: IAnnouncement;
@@ -61,10 +31,7 @@ const CardAd = ({ announcement }: CardAdProps) => {
 
   return (
     <Container>
-      <img
-        src="https://www.planetcarsz.com/assets/uploads/4e1cbf5036d32297aad4e320218788e3.jpg"
-        alt=""
-      />
+      <img src={car_thumb} alt="" />
 
       <section className="infos">
         <h1>{`${announcement?.manufacturer} ${announcement?.brand} ${announcement?.model}`}</h1>

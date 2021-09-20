@@ -16,6 +16,10 @@ export const Container = styled.div`
         cursor: pointer;
         max-width: 100%;
         border-radius: 32px;
+
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
       }
     }
 
@@ -32,6 +36,8 @@ export const Container = styled.div`
         border-radius: 2rem;
         width: 100px;
         height: 100px;
+
+        object-fit: cover;
       }
     }
   }

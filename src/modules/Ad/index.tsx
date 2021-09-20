@@ -6,19 +6,20 @@ import Related from './components/Related';
 
 import CardAd from '@/shared/components/molecules/CardAd';
 
-import mainImageCar from '@/shared/assets/illustrations/main-image-car.png';
-import imgACar from '@/shared/assets/illustrations/img-a.png';
-import imgBCar from '@/shared/assets/illustrations/img-b.png';
-import imgCCar from '@/shared/assets/illustrations/img-c.png';
+import car_thumb from '@/shared/assets/illustrations/thumbnail.png';
+
+import { api } from '@/shared/providers/api';
+import { IAnnouncement } from '@/shared/dto';
 
 import { Container } from './styles';
-import { api } from '@/shared/providers/api';
 
 interface IAd extends HTMLAttributes<HTMLElement> {
   id: any;
 }
 
 const Ad = ({ id }: IAd) => {
+  const [announcements, setAnnouncements] = useState<IAnnouncement[]>([]);
+
   useEffect(() => {
     async function getAdData() {
       try {
@@ -39,6 +40,20 @@ const Ad = ({ id }: IAd) => {
     getAdData();
   }, [id]);
 
+  useEffect(() => {
+    async function getAnnouncement() {
+      try {
+        const response = await api.get('/announcements');
+
+        setAnnouncements(response.data?.announcements);
+      } catch (error: any) {
+        console.log(error?.response);
+      }
+    }
+
+    getAnnouncement();
+  }, []);
+
   const [adData, setAdData] = useState(Object);
   const [adOwner, setAdOwner] = useState(Object);
 
@@ -47,10 +62,10 @@ const Ad = ({ id }: IAd) => {
       <div className="content">
         <div className="ad-info">
           <CarInfo
-            mainImage={mainImageCar}
-            imgA={imgACar}
-            imgB={imgBCar}
-            imgC={imgCCar}
+            mainImage={car_thumb}
+            imgA={car_thumb}
+            imgB={car_thumb}
+            imgC={car_thumb}
             name={adData?.brand}
             price={Intl.NumberFormat('pt-BR', {
               style: 'currency',
@@ -64,11 +79,11 @@ const Ad = ({ id }: IAd) => {
           <Contact name={adOwner.name} phone={adOwner.phone} />
         </div>
         <Related
-          relatedA={<CardAd />}
-          relatedB={<CardAd />}
-          relatedC={<CardAd />}
-          relatedD={<CardAd />}
-          relatedE={<CardAd />}
+          relatedA={<CardAd announcement={announcements[0]} />}
+          relatedB={<CardAd announcement={announcements[2]} />}
+          relatedC={<CardAd announcement={announcements[4]} />}
+          relatedD={<CardAd announcement={announcements[3]} />}
+          relatedE={<CardAd announcement={announcements[1]} />}
         />
       </div>
     </Container>
