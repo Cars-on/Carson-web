@@ -37,4 +37,24 @@ export const Container = styled.div`
     width: 100%;
     border: none;
   }
+
+  input::placeholder {
+    font-family: Archivo;
+    font-size: 1.125rem;
+    color: #a4b3b5;
+  }
+
+  .forget-password {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  @media (max-width: 425px) {
+    .email,
+    .password {
+      width: 100%;
+    }
+  }
 `;

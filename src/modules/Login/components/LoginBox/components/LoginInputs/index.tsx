@@ -16,6 +16,9 @@ const LoginInput = () => {
         <img src={passwordIcon} alt="" />
         <input type="text" placeholder="senha" />
       </div>
+      <div className="forget-password">
+        <p>Esqueceu a senha?</p>
+      </div>
     </Container>
   );
 };

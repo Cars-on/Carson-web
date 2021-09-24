@@ -10,7 +10,6 @@ export const Container = styled.div`
   box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.05);
 
   width: 37.5rem;
-  height: 29.375rem;
   padding: 2rem 4rem;
   gap: 4rem;
   margin-top: 12rem;
@@ -28,12 +27,16 @@ export const Container = styled.div`
     }
   }
 
-  .inputs {
+  .button {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
 
-    gap: 2rem;
+    width: 100%;
+  }
+
+  @media (max-width: 425px) {
+    padding: 2rem 2rem;
+    width: 100%;
   }
 `;
