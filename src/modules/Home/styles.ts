@@ -21,6 +21,7 @@ export const Content = styled.div`
   max-width: 1800px;
 
   color: #fff;
+  background: #fff;
 
   .search-bar {
     margin: 4rem 2.188rem;
