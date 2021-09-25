@@ -24,7 +24,6 @@ const ModalContent = () => {
 
     try {
       const response = await api.get(`/users-logs/${csvLot}`);
-      console.log(response);
 
       setCsvLogs(response?.data);
     } catch (error: any) {
