@@ -13,12 +13,12 @@ const SidebarFilters: React.FC = () => {
       <StateFilter />
       <hr />
       <ColorFilter />
-      <hr />
+      {/* <hr />
       <BrandFilter />
       <hr />
       <YearFilter />
       <hr />
-      <PriceFilter />
+      <PriceFilter /> */}
     </Container>
   );
 };

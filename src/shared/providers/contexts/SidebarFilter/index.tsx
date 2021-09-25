@@ -1,26 +1,36 @@
 import React, { useState, useCallback } from 'react';
 
-import { ISidebarFilterProvider } from './dto';
+import { ISidebarFilterProvider, IFiltersValueProps } from './dto';
 
 import SidebarFilterContext from './context';
+import { LoaderValue } from 'next/dist/server/image-config';
 
 const SidebarFilterProvider: React.FC<ISidebarFilterProvider> = ({
   children,
 }: ISidebarFilterProvider) => {
-  const [filtersValue, setFiltersValue] = useState<Array<string>>([]);
+  const initialState: IFiltersValueProps = {
+    stateFilter: '',
+    colorFilter: '',
+    brandFilter: '',
+    yearFilter: '',
+    priceFilter: '',
+  };
+
+  const [filtersValue, setFiltersValue] =
+    useState<IFiltersValueProps>(initialState);
 
   const fetchFilterValue = useCallback(
-    (value: string) => {
-      setFiltersValue(prevState => [...prevState, value]);
+    (payload: object) => {
+      setFiltersValue({ ...filtersValue, ...payload });
     },
-    [setFiltersValue],
+    [filtersValue, setFiltersValue],
   );
 
   const removeFilterValue = useCallback(
-    (value: string) => {
-      const newFilterValues = filtersValue.filter(filter => filter !== value);
+    (payload: object) => {
+      const newObj = { ...filtersValue, ...payload };
 
-      setFiltersValue(newFilterValues);
+      setFiltersValue(newObj);
     },
     [filtersValue, setFiltersValue],
   );

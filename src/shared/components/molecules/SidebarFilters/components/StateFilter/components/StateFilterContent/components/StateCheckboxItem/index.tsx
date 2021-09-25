@@ -21,14 +21,14 @@ const StateCheckboxItem: React.FC<IStateCheckboxItemProps> = ({
 
   const handleSelectFilter = useCallback(() => {
     if (!checked) {
-      fetchFilterValue(value);
+      fetchFilterValue({ stateFilter: value });
     } else {
-      removeFilterValue(value);
+      removeFilterValue({ stateFilter: value });
     }
   }, [checked, fetchFilterValue, removeFilterValue]);
 
   useEffect(() => {
-    if (filtersValue.includes(value)) {
+    if (filtersValue.stateFilter === value) {
       setChecked(true);
     } else {
       setChecked(false);

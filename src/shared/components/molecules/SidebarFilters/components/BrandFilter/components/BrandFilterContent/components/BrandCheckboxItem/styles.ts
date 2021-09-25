@@ -7,18 +7,25 @@ interface IInputCheckboxProps extends HTMLAttributes<HTMLDivElement> {
 
 export const InputCheckbox = styled.div<IInputCheckboxProps>`
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
 
   cursor: pointer;
+  width: 4rem;
+
+  padding: 0.8rem 1.9rem;
+  border-radius: 1.2rem;
+  border: 2px solid #fff;
+
+  &:hover {
+    border: 2px solid #828988;
+  }
 
   ${props =>
     props.checked &&
     css`
       border: 2px solid #a4b3b5;
-      padding: 0.5rem;
-      border-radius: 2rem;
     `}
 `;
 
@@ -26,7 +33,7 @@ export const Text = styled.p<HTMLAttributes<HTMLParagraphElement>>`
   margin: 0.5rem 0 0 0;
 
   font-family: Archivo;
-  font-size: 0.625rem;
+  font-size: 0.7rem;
   font-style: normal;
   font-weight: 400;
   line-height: 0.688rem;
