@@ -1,7 +1,7 @@
 import React, { ReactNode, useMemo, useState } from 'react';
 import { FileWithPath, useDropzone } from 'react-dropzone';
 
-import Button from '@/shared/components/atoms/Button';
+import Button from '@/shared/components/atoms/TopBarButton';
 import useUploadAdsModal from '@/shared/hooks/useUploadAdsModal';
 
 import {

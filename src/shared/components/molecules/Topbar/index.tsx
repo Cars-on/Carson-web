@@ -6,7 +6,7 @@ import useIsMobile from '@/shared/hooks/useIsMobile';
 import SearchBar from '@/shared/components/molecules/SearchBar';
 
 import logo from '../../../assets/icons/complete_logo.png';
-import Button from '../../atoms/Button';
+import Button from '../../atoms/TopBarButton';
 
 import MobileMenuModal from './MobileMenuModal';
 
@@ -60,13 +60,11 @@ const Topbar: React.FC<ITopbar> = ({ setToastVisibility }: ITopbar) => {
               >
                 Chat
               </Button>
-              <Button
-                onClick={() => setToastVisibility(true)}
-                primary
-                icon={FiUser}
-              >
-                Entrar
-              </Button>
+              <Link href="/login">
+                <Button primary icon={FiUser}>
+                  Entrar
+                </Button>
+              </Link>
             </section>
           )}
 
