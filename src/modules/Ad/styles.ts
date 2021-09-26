@@ -13,7 +13,7 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
     margin-top: 12rem;
-    width: 100vw;
+    width: 100%;
 
     .ad-info {
       display: flex;
@@ -26,9 +26,9 @@ export const Container = styled.div`
   }
 
   @media (max-width: 1440px) {
-    padding: 2rem;
     .content {
       .ad-info {
+        padding: 2rem;
         zoom: 90%;
       }
     }
