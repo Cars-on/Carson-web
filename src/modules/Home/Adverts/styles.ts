@@ -6,6 +6,8 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
 
+  background: var(--gray-20);
+
   width: 100%;
 
   ul {
@@ -14,6 +16,7 @@ export const Container = styled.div`
 
     width: 100%;
     gap: 16px;
+    margin: 3rem 0;
 
     list-style: none;
 
@@ -71,6 +74,9 @@ export const Content = styled.div`
   max-width: 1055px;
 
   gap: 30px;
-
   padding: 10px;
+
+  @media (max-width: 1250px) {
+    justify-content: center;
+  }
 `;
