@@ -4,6 +4,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
 
   background: var(--gray-20);
 
@@ -66,7 +67,7 @@ export const Content = styled.div`
   display: flex;
   flex-wrap: wrap;
 
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 
   width: 100%;
