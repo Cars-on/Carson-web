@@ -1,9 +1,5 @@
-import { HTMLAttributes, InputHTMLAttributes } from 'react';
+import { InputHTMLAttributes } from 'react';
 import styled from 'styled-components';
-
-export const Container = styled.div`
-  margin: 1rem 0 0 0;
-`;
 
 export const InputContainer = styled.input<
   InputHTMLAttributes<HTMLInputElement>
@@ -37,16 +33,4 @@ export const InputContainer = styled.input<
   &[type='number'] {
     -moz-appearance: textfield;
   }
-`;
-
-export const Text = styled.p<HTMLAttributes<HTMLParagraphElement>>`
-  font-family: Archivo;
-  font-size: 0.75rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 0.688rem;
-  letter-spacing: 0em;
-  color: #0b2926;
-
-  margin: 0.5rem 0 0 0;
 `;

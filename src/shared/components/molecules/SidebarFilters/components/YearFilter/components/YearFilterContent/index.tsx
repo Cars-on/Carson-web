@@ -1,15 +1,20 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React from 'react';
 
-import Input from '@/shared/components/atoms/Input';
-import { Container } from './styles';
-import useSidebarFilter from '@/shared/hooks/useSidebarFilter';
+import YearInput from './components/YearInput';
+import { Container, InputContainer, Text } from './styles';
 
 const YearFilterContent: React.FC = () => {
   return (
     <Container>
-      <Input placeholder="de" example="ex.:2010" />
+      <InputContainer>
+        <YearInput placeholder="de" />
+        <Text>ex.: 2010</Text>
+      </InputContainer>
 
-      <Input placeholder="até" example="ex.:2018" />
+      <InputContainer>
+        <YearInput placeholder="de" />
+        <Text>ex.: 2018</Text>
+      </InputContainer>
     </Container>
   );
 };

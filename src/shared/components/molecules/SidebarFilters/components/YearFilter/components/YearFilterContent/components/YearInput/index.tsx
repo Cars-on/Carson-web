@@ -1,15 +1,14 @@
 import React, { InputHTMLAttributes, useState } from 'react';
 
-import { Container, InputContainer, Text } from './styles';
+import { InputContainer } from './styles';
 
 interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   placeholder: string;
-  example: string;
 }
 
-const Input: React.FC<IInputProps> = ({
+const YearInput: React.FC<IInputProps> = ({
   placeholder,
-  example,
+  ...props
 }: IInputProps) => {
   const [inputValue, setInputValue] = useState<string>('');
 
@@ -23,16 +22,14 @@ const Input: React.FC<IInputProps> = ({
   };
 
   return (
-    <Container>
-      <InputContainer
-        placeholder={placeholder}
-        onChange={handleInputTyping}
-        type="number"
-        value={inputValue}
-      />
-      <Text>{example}</Text>
-    </Container>
+    <InputContainer
+      placeholder={placeholder}
+      onChange={handleInputTyping}
+      type="number"
+      value={inputValue}
+      {...props}
+    />
   );
 };
 
-export default Input;
+export default YearInput;

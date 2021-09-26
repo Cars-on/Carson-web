@@ -23,7 +23,7 @@ const StateCheckboxItem: React.FC<IStateCheckboxItemProps> = ({
     if (!checked) {
       fetchFilterValue({ stateFilter: value });
     } else {
-      removeFilterValue({ stateFilter: value });
+      removeFilterValue({ stateFilter: '' });
     }
   }, [checked, fetchFilterValue, removeFilterValue]);
 

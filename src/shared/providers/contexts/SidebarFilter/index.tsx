@@ -3,7 +3,6 @@ import React, { useState, useCallback } from 'react';
 import { ISidebarFilterProvider, IFiltersValueProps } from './dto';
 
 import SidebarFilterContext from './context';
-import { LoaderValue } from 'next/dist/server/image-config';
 
 const SidebarFilterProvider: React.FC<ISidebarFilterProvider> = ({
   children,
@@ -12,8 +11,14 @@ const SidebarFilterProvider: React.FC<ISidebarFilterProvider> = ({
     stateFilter: '',
     colorFilter: '',
     brandFilter: '',
-    yearFilter: '',
-    priceFilter: '',
+    yearFilter: {
+      from: '',
+      to: '',
+    },
+    priceFilter: {
+      from: '',
+      to: '',
+    },
   };
 
   const [filtersValue, setFiltersValue] =

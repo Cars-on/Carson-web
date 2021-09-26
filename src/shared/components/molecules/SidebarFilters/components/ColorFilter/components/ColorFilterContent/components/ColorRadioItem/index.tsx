@@ -23,7 +23,7 @@ const ColorRadioItem: React.FC<IColorRadioItemProps> = ({
     if (!checked) {
       fetchFilterValue({ colorFilter: text });
     } else {
-      removeFilterValue({ colorFilter: text });
+      removeFilterValue({ colorFilter: '' });
     }
   }, [checked, fetchFilterValue, removeFilterValue]);
 

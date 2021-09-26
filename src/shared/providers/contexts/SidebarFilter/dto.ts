@@ -4,8 +4,14 @@ export interface IFiltersValueProps {
   stateFilter: string;
   colorFilter: string;
   brandFilter: string;
-  yearFilter: string;
-  priceFilter: string;
+  yearFilter: {
+    from: string;
+    to: string;
+  };
+  priceFilter: {
+    from: string;
+    to: string;
+  };
 }
 
 export interface ISidebarFilterContextData {
