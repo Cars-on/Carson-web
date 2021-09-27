@@ -80,4 +80,11 @@ export const Container = styled.div`
 
     margin-bottom: 16px;
   }
+
+  @media (max-width: 1100px) {
+    button,
+    span {
+      font-size: 1rem;
+    }
+  }
 `;

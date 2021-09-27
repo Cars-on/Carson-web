@@ -6,7 +6,7 @@ export const Container = styled.div`
   max-width: 500px;
   width: 100%;
   height: 3.75rem;
-  padding: 0 32px;
+  padding: 0 24px;
 
   border-radius: 32px;
   border: 1px solid var(--green-aqua);
@@ -40,10 +40,13 @@ export const Container = styled.div`
     cursor: pointer;
     border: none;
 
-    transition: 0.3s transform;
+    margin: 0 0 0 20px;
+  }
 
-    &:hover {
-      transform: scale(1.1);
+  @media (max-width: 1100px) {
+    input {
+      font-size: 1rem;
+      line-height: 1rem;
     }
   }
 `;

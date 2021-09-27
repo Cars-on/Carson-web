@@ -14,6 +14,8 @@ export const Container = styled.button<IContainerProps>`
   border-radius: 32px;
   gap: 20px;
 
+  background: none;
+
   ${props =>
     props.angle === 'horizontal'
       ? css`
@@ -32,7 +34,6 @@ export const Container = styled.button<IContainerProps>`
 
     color: var(--white);
   }
-  background: none;
 
   ${props =>
     !props.hasIcon &&
@@ -54,12 +55,25 @@ export const Container = styled.button<IContainerProps>`
     background: var(--white);
     color: var(--green-aqua);
   }
+
   transition: 0.3s transform;
+
   &:hover {
     transform: scale(1.1);
   }
 
-  @media (max-width: 980px) {
+  @media (max-width: 1100px) {
+    svg {
+      height: 1rem;
+      width: 1rem;
+    }
+
+    span {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 1000px) {
     zoom: 86%;
   }
 `;
