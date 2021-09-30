@@ -9,7 +9,7 @@ export const InputContainer = styled.input<
   justify-content: center;
 
   height: 2rem;
-  width: 6rem;
+  width: 9.5rem;
   padding: 0 0 0 0.75rem;
 
   font-size: 1rem;
