@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   max-width: 27rem;
+  min-width: 17rem;
   width: 100%;
 `;
 
