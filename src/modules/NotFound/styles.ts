@@ -11,7 +11,14 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
 
+  padding: 4rem;
   gap: 6.25rem;
+
+  @media (max-width: 1005px) {
+    padding: 6rem 4rem 4rem 4rem;
+    justify-content: center;
+  }
 `;

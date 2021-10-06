@@ -3,5 +3,6 @@ import styled from 'styled-components';
 export const Container = styled.div``;
 
 export const Image = styled.img`
-  width: 36rem;
+  max-width: 36rem;
+  width: 100%;
 `;
