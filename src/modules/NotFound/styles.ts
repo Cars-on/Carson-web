@@ -18,7 +18,7 @@ export const Content = styled.div`
   gap: 6.25rem;
 
   @media (max-width: 1005px) {
-    padding: 6rem 4rem 4rem 4rem;
+    padding: 12rem 4rem 4rem 4rem;
     justify-content: center;
   }
 `;
