@@ -29,9 +29,12 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [toastVisibility]);
 
   useEffect(() => {
-    const allRoutes = ['/login', '/register-ads', '/register-users'];
+    const allRoutes = ['/', '/login', '/register-ads', '/register-users'];
 
-    if (router.asPath !== '/' && allRoutes.includes(router.asPath)) {
+    if (
+      allRoutes.includes(router.asPath) ||
+      router.asPath.slice(0, 4) === '/ad/'
+    ) {
       router.push(router.asPath);
     } else {
       router.push('/not-found');
