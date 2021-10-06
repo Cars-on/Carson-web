@@ -11,7 +11,7 @@ import Copyrights from '@/shared/components/molecules/Copyrights';
 import ToastNotification from '@/shared/components/molecules/ToastNotification';
 import ToastNotificationContext from '@/shared/components/molecules/ToastNotification/ToastNotificationContext';
 
-import StoreProvider from '@/shared/components/organisms/Store/Provider';
+import { AuthProvider } from '@/shared/providers/contexts/AuthContext/AuthContext';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [toastVisibility, setToastVisibility] = useState(false);
@@ -28,7 +28,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [toastVisibility]);
   return (
     <>
-      <StoreProvider>
+      <AuthProvider>
         <ToastNotificationContext.Provider
           value={{
             visible: toastVisibility,
@@ -50,7 +50,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             <GlobalStyle />
           </ContextProvider>
         </ToastNotificationContext.Provider>
-      </StoreProvider>
+      </AuthProvider>
     </>
   );
 }
