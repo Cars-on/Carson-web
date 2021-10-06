@@ -1,22 +1,29 @@
-import React, { HTMLAttributes } from 'react';
+import React, { HTMLAttributes, useEffect, useState } from 'react';
+
+import { IAnnouncement } from '@/shared/dto';
+import CardAd from '@/shared/components/molecules/CardAd';
+import { Slider } from '@/shared/components/molecules/Slider';
 
 import { Container } from './styles';
 
 interface IRelated extends HTMLAttributes<HTMLElement> {
-  relatedA: Object;
-  relatedB: Object;
-  relatedC: Object;
-  relatedD: Object;
-  relatedE: Object;
+  announcements: IAnnouncement[];
 }
 
-const Related = ({
-  relatedA,
-  relatedB,
-  relatedC,
-  relatedD,
-  relatedE,
-}: IRelated) => {
+const Related = ({ announcements }: IRelated) => {
+  const [sliders, setSliders] = useState<any[]>([]);
+
+  useEffect(() => {
+    let local_slider: any[] = [];
+
+    if (announcements) {
+      announcements.forEach(announcement => {
+        local_slider.push(<CardAd announcement={announcement} />);
+      });
+
+      setSliders(local_slider);
+    }
+  }, [announcements]);
   return (
     <Container>
       <div className="related">
@@ -24,13 +31,8 @@ const Related = ({
           <h3>Talvez você goste também</h3>
           <h1>Carros Relacionados</h1>
         </div>
-        <div className="related-cars">
-          {relatedA}
-          {relatedB}
-          {relatedC}
-          {relatedD}
-          {relatedE}
-        </div>
+
+        <Slider slides={sliders} />
       </div>
     </Container>
   );
