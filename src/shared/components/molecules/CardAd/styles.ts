@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  transition: all 0.3s;
   display: flex;
+  align-items: center;
   flex-direction: column;
+
+  transition: all 0.3s;
 
   :hover {
     transition: all 0.3s;
