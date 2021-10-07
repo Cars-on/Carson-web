@@ -21,10 +21,6 @@ export const Container = styled.div`
     padding: 1rem;
     column-gap: 0.5rem;
 
-    .focus-visible {
-      background-color: transparent !important;
-    }
-
     img {
       height: 1.25rem;
     }
