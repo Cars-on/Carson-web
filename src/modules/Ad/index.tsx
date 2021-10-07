@@ -4,8 +4,6 @@ import Contact from './components/Contact';
 import CarInfo from './components/CarInfo';
 import Related from './components/Related';
 
-import CardAd from '@/shared/components/molecules/CardAd';
-
 import car_thumb from '@/shared/assets/illustrations/thumbnail.png';
 
 import { api } from '@/shared/providers/api';
@@ -13,8 +11,8 @@ import { IAnnouncement } from '@/shared/dto';
 
 import { Container } from './styles';
 
-interface IAd extends HTMLAttributes<HTMLElement> {
-  id: any;
+interface IAd {
+  id: number | string;
 }
 
 const Ad = ({ id }: IAd) => {
@@ -78,13 +76,8 @@ const Ad = ({ id }: IAd) => {
           />
           <Contact name={adOwner?.name} phone={adOwner?.phone} />
         </div>
-        <Related
-          relatedA={<CardAd announcement={announcements[0]} />}
-          relatedB={<CardAd announcement={announcements[2]} />}
-          relatedC={<CardAd announcement={announcements[4]} />}
-          relatedD={<CardAd announcement={announcements[3]} />}
-          relatedE={<CardAd announcement={announcements[1]} />}
-        />
+
+        <Related announcements={announcements} />
       </div>
     </Container>
   );
