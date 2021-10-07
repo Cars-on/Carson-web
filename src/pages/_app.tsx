@@ -1,5 +1,6 @@
 import type { AppProps } from 'next/app';
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 
 import { GlobalStyle } from '@/shared/styles/global';
 import Head from '@/shared/seo/Head';
@@ -12,6 +13,8 @@ import ToastNotification from '@/shared/components/molecules/ToastNotification';
 import ToastNotificationContext from '@/shared/components/molecules/ToastNotification/ToastNotificationContext';
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+
   const [toastVisibility, setToastVisibility] = useState(false);
 
   useEffect(() => {
@@ -24,6 +27,20 @@ function MyApp({ Component, pageProps }: AppProps) {
       return () => clearTimeout(timerToCloseModal);
     }
   }, [toastVisibility]);
+
+  useEffect(() => {
+    const allRoutes = ['/', '/login', '/register-ads', '/register-users'];
+
+    if (
+      allRoutes.includes(router.asPath) ||
+      router.asPath.slice(0, 4) === '/ad/'
+    ) {
+      router.push(router.asPath);
+    } else {
+      router.push('/not-found');
+    }
+  }, [router.asPath]);
+
   return (
     <>
       <ToastNotificationContext.Provider
