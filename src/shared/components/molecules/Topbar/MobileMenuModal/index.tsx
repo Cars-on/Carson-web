@@ -24,10 +24,12 @@ const MobileMenuModal = ({ onClose }: MobileMenuModalProps) => {
   return (
     <Container>
       <ul>
-        <li onClick={handleCloseModal}>
-          <FiUser />
-          Entrar
-        </li>
+        {!authenticated && (
+          <li onClick={handleLogout}>
+            <FiUser />
+            Entrar
+          </li>
+        )}
         <Link href="/register_ads">
           <li onClick={handleCloseModal}>
             <FiShoppingBag />

@@ -9,7 +9,7 @@ import { Context } from '@/shared/providers/contexts/AuthContext/AuthContext';
 import { Container } from './styles';
 
 const LoginInput = () => {
-  const { authenticated, handleLogin } = useContext(Context);
+  const { handleLogin } = useContext(Context);
 
   function initialState() {
     return { email: '', password: '' };
@@ -33,7 +33,7 @@ const LoginInput = () => {
           <img src={emailIcon} alt="" />
           <input
             name="email"
-            type="text"
+            type="email"
             placeholder="seuemail@carson.com"
             onChange={onChange}
             value={values.email}
@@ -43,7 +43,7 @@ const LoginInput = () => {
           <img src={passwordIcon} alt="" />
           <input
             name="password"
-            type="text"
+            type="password"
             placeholder="senha"
             onChange={onChange}
             value={values.password}

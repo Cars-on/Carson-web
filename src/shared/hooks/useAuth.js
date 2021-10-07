@@ -43,7 +43,7 @@ export default function useAuth() {
   }
 
   if (loading) {
-    return <h1>Loading... </h1>;
+    return <h3>Loading... </h3>;
   }
 
   return { authenticated, handleLogin, handleLogout, loading };

@@ -63,11 +63,14 @@ const Topbar: React.FC<ITopbar> = ({ setToastVisibility }: ITopbar) => {
               >
                 Chat
               </Button>
-              <Link href="/login">
-                <Button primary icon={FiUser}>
-                  Entrar
-                </Button>
-              </Link>
+
+              {!authenticated && (
+                <Link href="/login">
+                  <Button primary icon={FiUser}>
+                    Entrar
+                  </Button>
+                </Link>
+              )}
 
               {authenticated && (
                 <Button onClick={handleLogout} primary icon={FiLogOut}>
