@@ -72,11 +72,11 @@ const Ad = ({ id }: IAd) => {
               currency: 'BRL',
             }).format(adData?.price)}
             year={adData?.manufacturer_year}
-            localization={adOwner.address}
+            localization={adOwner?.address}
             model={adData?.manufacturer}
             description={adData?.description}
           />
-          <Contact name={adOwner.name} phone={adOwner.phone} />
+          <Contact name={adOwner?.name} phone={adOwner?.phone} />
         </div>
         <Related
           relatedA={<CardAd announcement={announcements[0]} />}
