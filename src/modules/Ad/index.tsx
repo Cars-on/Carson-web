@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Contact from './components/Contact';
 import CarInfo from './components/CarInfo';
