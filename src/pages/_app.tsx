@@ -12,6 +12,8 @@ import Copyrights from '@/shared/components/molecules/Copyrights';
 import ToastNotification from '@/shared/components/molecules/ToastNotification';
 import ToastNotificationContext from '@/shared/components/molecules/ToastNotification/ToastNotificationContext';
 
+import { AuthProvider } from '@/shared/providers/contexts/AuthContext/AuthContext';
+
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
@@ -43,27 +45,29 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <ToastNotificationContext.Provider
-        value={{
-          visible: toastVisibility,
-          setVisible: setToastVisibility,
-        }}
-      >
-        <ToastNotification
-          visible={toastVisibility}
-          setVisible={setToastVisibility}
-        />
-        <ContextProvider>
-          <UploadUsersModal />
-          <UploadAdsModal />
+      <AuthProvider>
+        <ToastNotificationContext.Provider
+          value={{
+            visible: toastVisibility,
+            setVisible: setToastVisibility,
+          }}
+        >
+          <ToastNotification
+            visible={toastVisibility}
+            setVisible={setToastVisibility}
+          />
+          <ContextProvider>
+            <UploadUsersModal />
+            <UploadAdsModal />
 
-          <Head />
-          <Topbar setToastVisibility={setToastVisibility} />
-          <Component {...pageProps} />
-          <Copyrights />
-          <GlobalStyle />
-        </ContextProvider>
-      </ToastNotificationContext.Provider>
+            <Head />
+            <Topbar setToastVisibility={setToastVisibility} />
+            <Component {...pageProps} />
+            <Copyrights />
+            <GlobalStyle />
+          </ContextProvider>
+        </ToastNotificationContext.Provider>
+      </AuthProvider>
     </>
   );
 }
