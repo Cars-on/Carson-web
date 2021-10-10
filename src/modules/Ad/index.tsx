@@ -4,8 +4,6 @@ import Contact from './components/Contact';
 import CarInfo from './components/CarInfo';
 import Related from './components/Related';
 
-import car_thumb from '@/shared/assets/illustrations/thumbnail.png';
-
 import { api } from '@/shared/providers/api';
 import { IAnnouncement } from '@/shared/dto';
 
@@ -60,10 +58,7 @@ const Ad = ({ id }: IAd) => {
       <div className="content">
         <div className="ad-info">
           <CarInfo
-            mainImage={car_thumb}
-            imgA={car_thumb}
-            imgB={car_thumb}
-            imgC={car_thumb}
+            photos={adData?.photos?.slice(0, 3)}
             name={adData?.brand}
             price={Intl.NumberFormat('pt-BR', {
               style: 'currency',
