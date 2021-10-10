@@ -51,6 +51,12 @@ const ModalContent = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (csvLogs && csvLogs?.length === 0) {
+      closeUploadAdsModal();
+    }
+  }, [csvLogs]);
+
   return (
     <Container>
       <Modal>
@@ -60,7 +66,7 @@ const ModalContent = () => {
           <DivLoader>
             <Loader />
           </DivLoader>
-        ) : csvLogs?.length ? (
+        ) : csvLogs ? (
           <CsvLogsComponent logs={csvLogs} />
         ) : (
           <SuccessComponent

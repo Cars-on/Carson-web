@@ -1,69 +1,36 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-interface IContainerProps {
-  primary?: boolean;
-  hasIcon?: boolean;
-  angle?: 'horizontal' | 'vertical';
-}
-
-export const Container = styled.button<IContainerProps>`
+export const Container = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
 
-  border: none;
+  border: 1px solid #a4b3b5;
+  box-sizing: border-box;
   border-radius: 32px;
-
-  gap: 20px;
-
-  ${props =>
-    props.angle === 'horizontal'
-      ? css`
-          flex-direction: row;
-        `
-      : css`
-          flex-direction: column-reverse;
-        `}
 
   span {
     font-family: Archivo;
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
-    line-height: 20px;
-
-    color: var(--white);
+    font-size: 14px;
+    color: #0b2926;
+    row-gap: 20px;
+    column-gap: 20px;
+    padding: 8px 16px;
   }
 
   background: none;
-
-  ${props =>
-    !props.hasIcon &&
-    css`
-      background: var(--white);
-      padding: 10px 24px;
-
-      span {
-        color: var(--green-aqua);
-      }
-    `}
-
-  svg {
-    width: 18px;
-    height: 18px;
-
-    border-radius: 50%;
-    padding: 11px;
-
-    box-sizing: content-box;
-
-    background: var(--white);
-    color: var(--green-aqua);
-  }
-
   transition: 0.3s transform;
 
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
+    background: #38bcac;
+    border: 1px solid transparent;
+
+    span {
+      font-weight: bold;
+      color: #ffffff;
+    }
   }
 `;

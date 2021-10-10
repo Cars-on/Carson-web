@@ -1,5 +1,5 @@
 import React, { HTMLAttributes } from 'react';
-import Button from '@/shared/components/atoms/Button';
+import Button from '@/shared/components/atoms/TopBarButton';
 import shieldIcon from '@/shared/assets/icons/shield-icon.png';
 import phoneIcone from '@/shared/assets/icons/phone-icon.png';
 
