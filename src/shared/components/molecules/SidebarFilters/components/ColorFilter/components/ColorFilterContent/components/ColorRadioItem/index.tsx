@@ -21,14 +21,14 @@ const ColorRadioItem: React.FC<IColorRadioItemProps> = ({
 
   const handleSelectFilter = useCallback(() => {
     if (!checked) {
-      fetchFilterValue(text);
+      fetchFilterValue({ colorFilter: text });
     } else {
-      removeFilterValue(text);
+      removeFilterValue('colorFilter');
     }
   }, [checked, fetchFilterValue, removeFilterValue]);
 
   useEffect(() => {
-    if (filtersValue.includes(text)) {
+    if (filtersValue.colorFilter === text) {
       setChecked(true);
     } else {
       setChecked(false);
