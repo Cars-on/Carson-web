@@ -7,9 +7,10 @@ export default function useAuth() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('@crs:token');
+    const user = localStorage.getItem('@crs:user');
 
-    if (token) {
+    if (token && user) {
       api.defaults.headers.Authorization = `Bearer ${JSON.stringify(token)}`;
       setAuthenticated(true);
     }
@@ -20,13 +21,14 @@ export default function useAuth() {
   async function handleLogin({ email, password }) {
     try {
       const {
-        data: { token },
+        data: { token, user },
       } = await api.post('/sessions', {
         email,
         password,
       });
 
-      localStorage.setItem('token', JSON.stringify(token));
+      localStorage.setItem('@crs:token', JSON.stringify(token));
+      localStorage.setItem('@crs:user', JSON.stringify(user));
       api.defaults.headers.Authorization = `Bearer ${token}`;
       setAuthenticated(true);
       window.location.assign('/');
@@ -35,9 +37,10 @@ export default function useAuth() {
     }
   }
 
-  function handleLogout() { 
+  function handleLogout() {
     setAuthenticated(false);
-    localStorage.removeItem('token');
+    localStorage.removeItem('@crs:token');
+    localStorage.removeItem('@crs:user');
     api.defaults.headers.Authorization = undefined;
     window.location.assign('/login');
   }
