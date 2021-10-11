@@ -20,8 +20,6 @@ const SidebarFilterProvider: React.FC<ISidebarFilterProvider> = ({
   const [filtersValue, setFiltersValue] =
     useState<IFiltersValueProps>(initialState);
 
-  console.log(filtersValue);
-
   const fetchFilterValue = useCallback(
     (payload: object) => {
       setFiltersValue({ ...filtersValue, ...payload });
