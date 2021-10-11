@@ -20,6 +20,11 @@
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/shared/components/organisms/Store/Provider.jsx"
+  ],
   "exclude": ["node_modules"]
 }
