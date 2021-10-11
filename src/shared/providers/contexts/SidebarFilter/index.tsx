@@ -11,18 +11,16 @@ const SidebarFilterProvider: React.FC<ISidebarFilterProvider> = ({
     stateFilter: '',
     colorFilter: '',
     brandFilter: '',
-    yearFilter: {
-      from: '',
-      to: '',
-    },
-    priceFilter: {
-      from: '',
-      to: '',
-    },
+    fromYearFilter: '',
+    toYearFilter: '',
+    fromPriceFilter: '',
+    toPriceFilter: '',
   };
 
   const [filtersValue, setFiltersValue] =
     useState<IFiltersValueProps>(initialState);
+
+  console.log(filtersValue);
 
   const fetchFilterValue = useCallback(
     (payload: object) => {
@@ -32,10 +30,11 @@ const SidebarFilterProvider: React.FC<ISidebarFilterProvider> = ({
   );
 
   const removeFilterValue = useCallback(
-    (payload: object) => {
-      const newObj = { ...filtersValue, ...payload };
-
-      setFiltersValue(newObj);
+    (payload: string) => {
+      setFiltersValue({
+        ...filtersValue,
+        [payload]: '',
+      });
     },
     [filtersValue, setFiltersValue],
   );

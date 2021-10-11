@@ -9,9 +9,54 @@ const FilterSelected: React.FC = () => {
 
   return (
     <Container>
-      {filtersValue.map(filterSelectedItem => (
-        <FilterSelectedItem value={filterSelectedItem} />
-      ))}
+      {filtersValue.stateFilter && (
+        <FilterSelectedItem
+          value={filtersValue.stateFilter}
+          filterToRemove="stateFilter"
+        />
+      )}
+
+      {filtersValue.colorFilter && (
+        <FilterSelectedItem
+          value={filtersValue.colorFilter}
+          filterToRemove="colorFilter"
+        />
+      )}
+
+      {filtersValue.brandFilter && (
+        <FilterSelectedItem
+          value={filtersValue.brandFilter}
+          filterToRemove="brandFilter"
+        />
+      )}
+
+      {filtersValue.fromYearFilter && (
+        <FilterSelectedItem
+          value={filtersValue.fromYearFilter}
+          filterToRemove="fromYearFilter"
+        />
+      )}
+
+      {filtersValue.toYearFilter && (
+        <FilterSelectedItem
+          value={filtersValue.toYearFilter}
+          filterToRemove="toYearFilter"
+        />
+      )}
+
+      {filtersValue.fromPriceFilter && (
+        <FilterSelectedItem
+          value={filtersValue.fromPriceFilter}
+          filterToRemove="fromPriceFilter"
+        />
+      )}
+
+      {filtersValue.toPriceFilter && (
+        <FilterSelectedItem
+          value={filtersValue.toPriceFilter}
+          filterToRemove="toPriceFilter"
+        />
+      )}
     </Container>
   );
 };

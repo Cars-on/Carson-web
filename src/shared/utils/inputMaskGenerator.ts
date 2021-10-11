@@ -1,17 +1,16 @@
 export const formatBrazilianCurrency = (value: string) => {
   const cleanValue = value
     .replace('R$ ', '')
-    .replace(',', '')
+    .replace('.', '')
     .replace('.', '')
     .replace('.', '');
 
-  const transformValue = parseFloat(
-    parseFloat(`${parseInt(cleanValue) / 100}`).toFixed(2),
-  );
+  const transformValue = parseInt(cleanValue);
 
   const currencyFormatted = new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL',
+    maximumFractionDigits: 0,
   }).format(transformValue);
 
   return currencyFormatted;

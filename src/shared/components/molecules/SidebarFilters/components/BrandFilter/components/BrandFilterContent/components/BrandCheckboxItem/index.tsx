@@ -25,7 +25,7 @@ const BrandCheckboxItem: React.FC<IBrandCheckedBox> = ({
     if (!checked) {
       fetchFilterValue({ brandFilter: text });
     } else {
-      removeFilterValue({ brandFilter: '' });
+      removeFilterValue('brandFilter');
     }
   }, [removeFilterValue, fetchFilterValue, checked]);
 

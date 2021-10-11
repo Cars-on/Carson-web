@@ -4,20 +4,16 @@ export interface IFiltersValueProps {
   stateFilter: string;
   colorFilter: string;
   brandFilter: string;
-  yearFilter: {
-    from: string;
-    to: string;
-  };
-  priceFilter: {
-    from: string;
-    to: string;
-  };
+  fromYearFilter: string;
+  toYearFilter: string;
+  fromPriceFilter: string;
+  toPriceFilter: string;
 }
 
 export interface ISidebarFilterContextData {
   filtersValue: IFiltersValueProps;
   fetchFilterValue: (payload: object) => void;
-  removeFilterValue: (payload: object) => void;
+  removeFilterValue: (payload: string) => void;
 }
 
 export interface ISidebarFilterProvider {
