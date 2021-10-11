@@ -10,6 +10,7 @@ import { api } from '@/shared/providers/api';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
 const Adverts: React.FC = () => {
+  const [announcementsPage, setAnnouncementsPage] = useState<number>(1);
   const [announcements, setAnnouncements] =
     useState<{ announcements: []; total_pages: number }>();
 
@@ -29,6 +30,39 @@ const Adverts: React.FC = () => {
     getAnnouncement();
   }, []);
 
+  const old = {
+    lowest_price: filtersValue.fromPriceFilter
+      .replace('R$ ', '')
+      .replace('.', '')
+      .replace('.', '')
+      .replace('.', ''),
+    biggest_price: filtersValue.toPriceFilter
+      .replace('R$ ', '')
+      .replace('.', '')
+      .replace('.', '')
+      .replace('.', ''),
+    lowest_year: filtersValue.fromYearFilter,
+    biggest_year: filtersValue.toYearFilter,
+    manufacturer: filtersValue.brandFilter,
+  };
+
+  const params = Object.keys(old)
+    .filter(k => old[k] !== '')
+    .reduce((a, k) => ({ ...a, [k]: old[k] }), {});
+
+  async function getAnnouncementFiltered(page: number) {
+    try {
+      const response = await api.get(
+        `/announcements-filter?per_page=8&page=${page + 1}`,
+        { params },
+      );
+
+      setAnnouncements(response.data);
+    } catch (error: any) {
+      console.log(error?.response);
+    }
+  }
+
   async function handlePageChange(page: number) {
     try {
       const response = await api.get(
@@ -41,11 +75,28 @@ const Adverts: React.FC = () => {
     }
   }
 
+  const renderFilter =
+    filtersValue.stateFilter ||
+    filtersValue.colorFilter ||
+    filtersValue.brandFilter ||
+    filtersValue.fromYearFilter ||
+    filtersValue.toYearFilter ||
+    filtersValue.fromPriceFilter ||
+    filtersValue.toPriceFilter;
+
+  useEffect(() => {
+    if (!!renderFilter) {
+      getAnnouncementFiltered(announcementsPage);
+    } else {
+      handlePageChange(announcementsPage);
+    }
+  }, [announcementsPage, filtersValue]);
+
   return (
     <>
       {!!announcements && (
         <Container>
-          {!!filtersValue.length && <FilterSelected />}
+          {!!renderFilter && <FilterSelected />}
           <Content>
             {announcements?.announcements?.map((announcement: any) => (
               <CardAd announcement={announcement} />
@@ -58,7 +109,7 @@ const Adverts: React.FC = () => {
             marginPagesDisplayed={0}
             nextLabel={<IoIosArrowForward />}
             previousLabel={<IoIosArrowBack />}
-            onPageChange={({ selected }) => handlePageChange(selected)}
+            onPageChange={({ selected }) => setAnnouncementsPage(selected)}
           />
         </Container>
       )}

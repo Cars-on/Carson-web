@@ -18,6 +18,10 @@ export const Text = styled.p`
   font-weight: 400;
   line-height: 1.25rem;
   letter-spacing: 0em;
+
+  &:hover {
+    color: #505a59;
+  }
 `;
 
 export const RadioInput = styled.input<InputHTMLAttributes<HTMLInputElement>>`
