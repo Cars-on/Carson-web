@@ -26,6 +26,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       return () => clearTimeout(timerToCloseModal);
     }
   }, [toastVisibility]);
+
   return (
     <>
       <AuthProvider>

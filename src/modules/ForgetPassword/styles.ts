@@ -1,3 +1,5 @@
 import styled from 'styled-components';
 
-export const Container = styled.div``;
+import Wrapper from '@/shared/components/templates/Wrapper';
+
+export const Container = styled(Wrapper)``;
