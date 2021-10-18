@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Link from 'next/link';
-import { FiMessageCircle, FiUser } from 'react-icons/fi';
+import { FiMessageCircle, FiUser, FiLogOut } from 'react-icons/fi';
 
 import useIsMobile from '@/shared/hooks/useIsMobile';
 import SearchBar from '@/shared/components/molecules/SearchBar';
@@ -9,6 +9,7 @@ import logo from '../../../assets/icons/complete_logo.png';
 import Button from '../../atoms/TopBarButton';
 
 import MobileMenuModal from './MobileMenuModal';
+import { Context } from '@/shared/providers/contexts/AuthContext/AuthContext';
 
 import { Container, Content, SidebarMenu } from './styles';
 
@@ -17,6 +18,8 @@ interface ITopbar {
 }
 
 const Topbar: React.FC<ITopbar> = ({ setToastVisibility }: ITopbar) => {
+  const { handleLogout, authenticated } = useContext(Context);
+
   const isMobile = useIsMobile();
 
   const [showMenuMobile, setMenuMobile] = useState(false);
@@ -60,11 +63,20 @@ const Topbar: React.FC<ITopbar> = ({ setToastVisibility }: ITopbar) => {
               >
                 Chat
               </Button>
-              <Link href="/login">
-                <Button primary icon={FiUser}>
-                  Entrar
+
+              {!authenticated && (
+                <Link href="/login">
+                  <Button primary icon={FiUser}>
+                    Entrar
+                  </Button>
+                </Link>
+              )}
+
+              {authenticated && (
+                <Button onClick={handleLogout} primary icon={FiLogOut}>
+                  Sair
                 </Button>
-              </Link>
+              )}
             </section>
           )}
 

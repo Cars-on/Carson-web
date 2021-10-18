@@ -9,15 +9,18 @@ export const Container = styled.button`
   box-sizing: border-box;
   border-radius: 32px;
 
+  height: 3.125rem;
+  width: 7.5rem;
+
   span {
     font-family: Archivo;
     font-style: normal;
     font-weight: normal;
-    font-size: 14px;
+    font-size: 1.125rem;
     color: #0b2926;
     row-gap: 20px;
     column-gap: 20px;
-    padding: 8px 16px;
+    padding: 0.5rem 1rem;
   }
 
   background: none;

@@ -23,14 +23,14 @@ const BrandCheckboxItem: React.FC<IBrandCheckedBox> = ({
 
   const handleSelectFilter = useCallback(() => {
     if (!checked) {
-      fetchFilterValue(text);
+      fetchFilterValue({ brandFilter: text });
     } else {
-      removeFilterValue(text);
+      removeFilterValue('brandFilter');
     }
   }, [removeFilterValue, fetchFilterValue, checked]);
 
   useEffect(() => {
-    if (filtersValue.includes(text)) {
+    if (filtersValue.brandFilter === text) {
       setChecked(true);
     } else {
       setChecked(false);

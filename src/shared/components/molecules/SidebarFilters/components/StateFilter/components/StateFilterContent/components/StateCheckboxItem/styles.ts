@@ -23,10 +23,14 @@ export const InputCheckbox = styled.div<IInputCheckboxProps>`
   line-height: 1.5rem;
   letter-spacing: 0em;
 
+  &:hover {
+    color: #505a59;
+  }
+
   ${props =>
     props.checked &&
     css`
-      color: black;
+      color: #051211;
       font-weight: bold;
     `}
 `;

@@ -5,7 +5,7 @@ const useIsMobile = () => {
 
   useEffect(() => {
     function onScreenResize() {
-      setIsMobile(window.innerWidth < 900);
+      setIsMobile(window.innerWidth < 1080);
     }
 
     window.addEventListener('resize', onScreenResize);

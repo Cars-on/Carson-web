@@ -21,6 +21,10 @@ export const Container = styled.div`
     padding: 1rem;
     column-gap: 0.5rem;
 
+    .focus-visible {
+      background-color: transparent !important;
+    }
+
     img {
       height: 1.25rem;
     }
@@ -49,6 +53,13 @@ export const Container = styled.div`
     align-items: center;
     justify-content: flex-end;
     width: 100%;
+
+    p:hover {
+      cursor: pointer;
+      transition: all 0.6s;
+      color: #38bcac;
+      transform: scale(1.02);
+    }
   }
 
   @media (max-width: 425px) {
