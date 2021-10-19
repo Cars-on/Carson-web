@@ -12,8 +12,6 @@ const SidebarFilters: React.FC = () => {
     <Container>
       <StateFilter />
       <hr />
-      <ColorFilter />
-      <hr />
       <BrandFilter />
       <hr />
       <YearFilter />

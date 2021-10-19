@@ -1,31 +1,33 @@
-import React, { HTMLAttributes } from 'react';
+import React from 'react';
 import { FiX } from 'react-icons/fi';
+
+import useToastNotification from 'shared/hooks/useToastNotification';
 
 import { Container } from './styles';
 
-interface IToastNotification extends HTMLAttributes<HTMLElement> {
-  title?: string;
-  message?: string;
-  visible: boolean;
-  setVisible(showModal: boolean): void;
-}
+const ToastNotification = () => {
+  const {
+    message,
+    description,
+    setShowToastNotification,
+    showToastNotification,
+  } = useToastNotification();
 
-const ToastNotification = ({
-  title,
-  message,
-  visible,
-  setVisible,
-}: IToastNotification) => {
   return (
-    <Container visible={visible}>
-      {visible && (
+    <Container visible={showToastNotification}>
+      {showToastNotification && (
         <div className="text-modal-content-container">
-          <FiX color="#0B2926;" size={28} onClick={() => setVisible(false)} />
+          <FiX
+            color="#0B2926;"
+            size={28}
+            onClick={() => setShowToastNotification(false)}
+          />
 
           <div className="text-container">
-            <h3>{title || 'Olá, tudo bem?'}</h3>
+            <h3>{message || 'Olá, tudo bem?'}</h3>
             <p>
-              {message || 'Esta funcionalidade estará disponível em breve! '}
+              {description ||
+                'Esta funcionalidade estará disponível em breve! '}
             </p>
           </div>
         </div>
