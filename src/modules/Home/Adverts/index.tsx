@@ -19,6 +19,7 @@ const Adverts: React.FC = () => {
   const renderFilter =
     filtersValue.stateFilter ||
     filtersValue.colorFilter ||
+    filtersValue.manufacturerFilter ||
     filtersValue.brandFilter ||
     filtersValue.fromYearFilter ||
     filtersValue.toYearFilter ||
@@ -38,7 +39,8 @@ const Adverts: React.FC = () => {
       .replace('.', ''),
     lowest_year: filtersValue.fromYearFilter,
     biggest_year: filtersValue.toYearFilter,
-    manufacturer: filtersValue.brandFilter,
+    manufacturer: filtersValue.manufacturerFilter,
+    brand: filtersValue.brandFilter,
   };
 
   const params = Object.keys(old)

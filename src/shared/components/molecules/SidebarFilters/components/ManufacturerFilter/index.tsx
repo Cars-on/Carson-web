@@ -4,15 +4,15 @@ import { FiTag } from 'react-icons/fi';
 import TitleIcon from '@/shared/components/atoms/TitleIcon';
 
 import { Container } from './styles';
-import BrandFilterContent from './components/BrandFilterContent';
+import ManufacturerFilterContent from './components/ManufacturerFilterContent';
 
-const BrandFilter = () => {
+const manufacturerFilter = () => {
   return (
     <Container>
       <TitleIcon Icon={FiTag} title="Marca" />
-      <BrandFilterContent />
+      <ManufacturerFilterContent />
     </Container>
   );
 };
 
-export default BrandFilter;
+export default manufacturerFilter;
