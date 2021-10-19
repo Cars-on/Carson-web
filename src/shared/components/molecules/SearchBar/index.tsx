@@ -1,25 +1,44 @@
 import React, { InputHTMLAttributes, useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
 
+import useSidebarFilter from '@/shared/hooks/useSidebarFilter';
+import capitalize from '@/shared/utils/capitalizeString';
+
 import { Container } from './styles';
 
 interface ISearchBarProps extends InputHTMLAttributes<HTMLInputElement> {
   className?: string;
 }
 
-const SearchBar: React.FC<ISearchBarProps> = ({ className, ...rest }: ISearchBarProps) => {
-  const [searchValue, setSearchValue] = useState('');
+const SearchBar: React.FC<ISearchBarProps> = ({
+  className,
+  ...rest
+}: ISearchBarProps) => {
+  const [inputSearchValue, setInputSearchValue] = useState('');
 
-  function handleUserSearch(e: any) {
-    setSearchValue(e.target.value);
+  const { fetchFilterValue, removeFilterValue } = useSidebarFilter();
+
+  function handleKeyPress(e: any) {
+    if (e.key === 'Enter') {
+      fetchFilterValue({ brandFilter: inputSearchValue });
+    } else if (e.key === 'Backspace' && inputSearchValue.length <= 1) {
+      removeFilterValue('brandFilter');
+    }
+  }
+
+  function handleInputChange(e: any) {
+    const searchValue = e?.target?.value;
+
+    setInputSearchValue(capitalize(searchValue));
   }
 
   return (
     <Container className={className}>
       <input
         type="text"
-        value={searchValue}
-        onChange={handleUserSearch}
+        value={inputSearchValue}
+        onChange={handleInputChange}
+        onKeyDown={handleKeyPress}
         {...rest}
       />
       <button type="button">

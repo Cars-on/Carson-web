@@ -1,10 +1,8 @@
-import React, { HTMLAttributes, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Contact from './components/Contact';
 import CarInfo from './components/CarInfo';
 import Related from './components/Related';
-
-import car_thumb from '@/shared/assets/illustrations/thumbnail.png';
 
 import { api } from '@/shared/providers/api';
 import { IAnnouncement } from '@/shared/dto';
@@ -60,10 +58,8 @@ const Ad = ({ id }: IAd) => {
       <div className="content">
         <div className="ad-info">
           <CarInfo
-            mainImage={car_thumb}
-            imgA={car_thumb}
-            imgB={car_thumb}
-            imgC={car_thumb}
+            userId={adOwner?.id}
+            photos={adData?.photos?.slice(0, 3)}
             name={adData?.brand}
             price={Intl.NumberFormat('pt-BR', {
               style: 'currency',
@@ -77,7 +73,7 @@ const Ad = ({ id }: IAd) => {
           <Contact name={adOwner?.name} phone={adOwner?.phone} />
         </div>
 
-        <Related announcements={announcements} />
+        <Related id_announcement={id} announcements={announcements} />
       </div>
     </Container>
   );

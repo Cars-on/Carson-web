@@ -11,6 +11,7 @@ export interface IAnnouncement {
   lot: string;
   manufacturer: string;
   manufacturer_year: string;
+  photos: Array<string>;
   model: string;
   price: string;
   updated_at: string;

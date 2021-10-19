@@ -1,18 +1,23 @@
 import { useState, useEffect } from 'react';
 
+import useToastNotification from '@/shared/hooks/useToastNotification';
 import { api } from '@/shared/providers/api';
 
 export default function useAuth() {
   const [authenticated, setAuthenticated] = useState(false);
+  const [loggedUser, setLoggedUser] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  const { setMessage, setDescription, setShowToastNotification } = useToastNotification();
 
   useEffect(() => {
     const token = localStorage.getItem('@crs:token');
-    const user = localStorage.getItem('@crs:user');
+    const loggedUser = JSON.parse(localStorage.getItem('@crs:user'));
 
-    if (token && user) {
+    if (token && loggedUser) {
       api.defaults.headers.Authorization = `Bearer ${JSON.stringify(token)}`;
       setAuthenticated(true);
+      setLoggedUser(loggedUser);
     }
 
     setLoading(false);
@@ -33,6 +38,19 @@ export default function useAuth() {
       setAuthenticated(true);
       window.location.assign('/');
     } catch (err) {
+      const errorMessage = err.response.data.message;
+
+      if (errorMessage.includes('primeiro acesso')) {
+        setMessage('Falha no Login');
+        setDescription(errorMessage);
+        setShowToastNotification(true);
+        return;
+      }
+
+      setMessage('Falha no Login');
+      setDescription(errorMessage);
+      setShowToastNotification(true);
+
       return console.log(err);
     }
   }
@@ -49,5 +67,5 @@ export default function useAuth() {
     return <h3>Loading... </h3>;
   }
 
-  return { authenticated, handleLogin, handleLogout, loading };
+  return { authenticated, handleLogin, handleLogout, loading, loggedUser };
 }

@@ -10,6 +10,7 @@ const SidebarFilterProvider: React.FC<ISidebarFilterProvider> = ({
   const initialState: IFiltersValueProps = {
     stateFilter: '',
     colorFilter: '',
+    manufacturerFilter: '',
     brandFilter: '',
     fromYearFilter: '',
     toYearFilter: '',

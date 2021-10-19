@@ -1,22 +1,22 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   :root {
     --black-100: #051211;
-    --black-70: #505A59;
-    --black-20: #CDD0CF;
-    --gray: #A4B3B5;
+    --black-70: #505a59;
+    --black-20: #cdd0cf;
+    --gray: #a4b3b5;
     --gray-20: #fafafa;
 
-    --green-aqua: #38BCAC;
-    --green-dark: #0B2926;
-    --green: #38BC6D;
-    --red: #BC3838;
-    --yellow: #ECFA4B;
-    --white: #FFFFFF;
+    --green-aqua: #38bcac;
+    --green-dark: #0b2926;
+    --green: #38bc6d;
+    --red: #bc3838;
+    --yellow: #ecfa4b;
+    --white: #ffffff;
 
-    --gradient: linear-gradient(90deg, #38BCAC 0%, #A4B3B5 100%);
-    --lightRed: #D17474
+    --gradient: linear-gradient(90deg, #38bcac 0%, #a4b3b5 100%);
+    --lightRed: #d17474;
   }
 
   * {
@@ -28,16 +28,14 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
   }
 
-
   body {
     width: 100%;
     height: max-content;
     min-height: 100vh;
   }
 
-
   #__next {
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -56,7 +54,6 @@ export const GlobalStyle = createGlobalStyle`
   p {
     font-family: 'Archivo', sans-serif;
   }
-
 
   a {
     color: inherit;
