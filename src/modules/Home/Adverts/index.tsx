@@ -46,8 +46,6 @@ const Adverts: React.FC = () => {
     .reduce((a, k) => ({ ...a, [k]: old[k] }), {});
 
   async function getAnnouncement(page = 1) {
-    console.log('chamou', page);
-
     try {
       const response = await api.get(`/announcements?per_page=8&page=${page}`);
 
@@ -71,8 +69,6 @@ const Adverts: React.FC = () => {
   }
 
   async function handlePageChange(page: number) {
-    console.log(page, renderFilter);
-
     if (renderFilter) {
       getAnnouncementFiltered(page);
     } else {

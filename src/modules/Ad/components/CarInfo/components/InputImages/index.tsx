@@ -33,7 +33,7 @@ const InputImages: React.FC = () => {
 
     const imageResponse = await sendImagesResquestd(formData);
 
-    if (imageResponse === 200) router.push(`announcements/${id}`);
+    if (imageResponse === 200) location.reload();
   };
 
   return (

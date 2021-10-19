@@ -31,7 +31,10 @@ const CardAd = ({ announcement }: CardAdProps) => {
 
   return (
     <Container>
-      <img src={car_thumb} alt="" />
+      <img
+        src={announcement?.photos?.length ? announcement?.photos[0] : car_thumb}
+        alt=""
+      />
 
       <section className="infos">
         <h1>{`${announcement?.manufacturer} ${announcement?.brand} ${announcement?.model}`}</h1>

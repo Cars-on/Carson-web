@@ -17,6 +17,7 @@ interface ICarInfoProps extends HTMLAttributes<HTMLElement> {
   localization: string;
   model: string;
   description: string;
+  userId: string;
 }
 
 const CarInfo = ({
@@ -26,14 +27,24 @@ const CarInfo = ({
   year,
   localization,
   model,
+  userId,
   description,
 }: ICarInfoProps) => {
   const [mainPhoto, setMainPhoto] = useState(car_thumb);
 
+  const localStorageUser =
+    typeof window !== 'undefined' ? localStorage?.getItem('@crs:user') : null;
+  const isUserLogged = JSON.parse(localStorageUser);
+  const userIdLocalStorage = isUserLogged?.id;
+
+  const ownerIsLogged = userId === userIdLocalStorage;
+
   useEffect(() => {
     if (photos?.length) {
       setMainPhoto(photos[0]);
+      return;
     }
+    setMainPhoto(car_thumb);
   }, photos);
 
   return (
@@ -72,7 +83,7 @@ const CarInfo = ({
         </p>
         <p>{description}</p>
 
-        <InputImages />
+        {ownerIsLogged && <InputImages />}
       </div>
     </Container>
   );

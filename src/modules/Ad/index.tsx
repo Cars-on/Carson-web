@@ -58,6 +58,7 @@ const Ad = ({ id }: IAd) => {
       <div className="content">
         <div className="ad-info">
           <CarInfo
+            userId={adOwner?.id}
             photos={adData?.photos?.slice(0, 3)}
             name={adData?.brand}
             price={Intl.NumberFormat('pt-BR', {
@@ -72,7 +73,7 @@ const Ad = ({ id }: IAd) => {
           <Contact name={adOwner?.name} phone={adOwner?.phone} />
         </div>
 
-        <Related announcements={announcements} />
+        <Related id_announcement={id} announcements={announcements} />
       </div>
     </Container>
   );
