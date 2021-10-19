@@ -10,8 +10,6 @@ import UploadAdsModal from '@/shared/components/organisms/UploadAdsModal ';
 import Copyrights from '@/shared/components/molecules/Copyrights';
 import ToastNotification from '@/shared/components/molecules/ToastNotification';
 
-import { AuthProvider } from '@/shared/providers/contexts/AuthContext/AuthContext';
-
 function MyApp({ Component, pageProps }: AppProps) {
   const [toastVisibility, setToastVisibility] = useState(false);
 
@@ -28,19 +26,17 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <AuthProvider>
-        <ContextProvider>
-          <UploadUsersModal />
-          <UploadAdsModal />
-          <ToastNotification />
+      <ContextProvider>
+        <UploadUsersModal />
+        <UploadAdsModal />
+        <ToastNotification />
 
-          <Head />
-          <Topbar setToastVisibility={setToastVisibility} />
-          <Component {...pageProps} />
-          <Copyrights />
-          <GlobalStyle />
-        </ContextProvider>
-      </AuthProvider>
+        <Head />
+        <Topbar setToastVisibility={setToastVisibility} />
+        <Component {...pageProps} />
+        <Copyrights />
+        <GlobalStyle />
+      </ContextProvider>
     </>
   );
 }

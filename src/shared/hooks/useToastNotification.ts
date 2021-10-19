@@ -5,8 +5,6 @@ import ToastNotificationContext from '../providers/contexts/ToastNotification/co
 export default function useToastNotification() {
   const context = useContext(ToastNotificationContext);
 
-  console.log(context, 'context');
-
   if (!context) {
     throw new Error(
       'useToastNotification must be used within an ToastNotificationProvider',

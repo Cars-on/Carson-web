@@ -23,14 +23,16 @@ export const Container = styled.div`
   .text-modal-content-container {
     width: 100%;
     display: flex;
-    align-items: flex-end;
-    flex-direction: column;
+    align-items: flex-start;
+    flex-direction: row-reverse;
     padding: 1rem 1.8rem 1.5rem;
+    gap: 20px;
+
     animation: ${appearFromRight} 1s;
 
     svg {
       cursor: pointer;
-      margin-bottom: 10px;
+      margin: -5px 0px 0px 0;
       zoom: 80%;
       filter: drop-shadow(1px 1px 15px rgba(0, 0, 0, 0.6));
     }
@@ -38,7 +40,6 @@ export const Container = styled.div`
     .text-container {
       width: 100%;
       display: flex;
-      margin-top: -30px;
       flex-direction: column;
       justify-content: center;
 

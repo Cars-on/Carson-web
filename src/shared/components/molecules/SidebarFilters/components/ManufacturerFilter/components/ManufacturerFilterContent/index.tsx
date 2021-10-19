@@ -12,7 +12,7 @@ import VolkswagenLogo from '../../../../../../../assets/svgIcons/volkswagen-logo
 import BrandCheckboxItem from './components/BrandCheckboxItem';
 import { Container } from './styles';
 
-const BrandFilterContent: React.FC = () => {
+const manufacturerFilterContent: React.FC = () => {
   return (
     <Container>
       <BrandCheckboxItem text="Chevrolet" Image={ChevroletLogo} />
@@ -27,4 +27,4 @@ const BrandFilterContent: React.FC = () => {
   );
 };
 
-export default BrandFilterContent;
+export default manufacturerFilterContent;
