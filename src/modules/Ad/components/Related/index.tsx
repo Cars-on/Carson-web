@@ -14,8 +14,6 @@ interface IRelated extends HTMLAttributes<HTMLElement> {
 const Related = ({ announcements, id_announcement }: IRelated) => {
   const [sliders, setSliders] = useState<any[]>([]);
 
-  console.log(sliders, id_announcement, 'teste');
-
   useEffect(() => {
     let local_slider: any[] = [];
 
