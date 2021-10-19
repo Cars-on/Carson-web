@@ -5,6 +5,8 @@ export const formatBrazilianCurrency = (value: string) => {
     .replace('.', '')
     .replace('.', '');
 
+  if (!cleanValue) return '';
+
   const transformValue = parseInt(cleanValue);
 
   const currencyFormatted = new Intl.NumberFormat('pt-BR', {

@@ -7,8 +7,8 @@ export const Container = styled.div`
   justify-content: space-between;
 
   background: var(--gray-20);
-
   width: 100%;
+  padding: 0 20px;
 
   ul {
     display: flex;
@@ -68,15 +68,15 @@ export const Content = styled.div`
   flex-wrap: wrap;
 
   justify-content: flex-start;
-  align-items: center;
 
+  height: 100%;
   width: 100%;
   max-width: 1055px;
 
   gap: 30px;
   padding: 10px;
 
-  @media (max-width: 1250px) {
+  @media (max-width: 870px) {
     justify-content: center;
   }
 `;

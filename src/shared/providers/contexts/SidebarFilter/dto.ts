@@ -3,6 +3,7 @@ import React from 'react';
 export interface IFiltersValueProps {
   stateFilter: string;
   colorFilter: string;
+  manufacturerFilter: string;
   brandFilter: string;
   fromYearFilter: string;
   toYearFilter: string;

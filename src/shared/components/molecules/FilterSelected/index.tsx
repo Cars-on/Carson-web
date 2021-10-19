@@ -23,10 +23,10 @@ const FilterSelected: React.FC = () => {
         />
       )}
 
-      {filtersValue.brandFilter && (
+      {filtersValue.manufacturerFilter && (
         <FilterSelectedItem
-          value={filtersValue.brandFilter}
-          filterToRemove="brandFilter"
+          value={filtersValue.manufacturerFilter}
+          filterToRemove="manufacturerFilter"
         />
       )}
 
