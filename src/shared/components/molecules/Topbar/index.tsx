@@ -18,7 +18,7 @@ interface ITopbar {
 }
 
 const Topbar: React.FC<ITopbar> = ({ setToastVisibility }: ITopbar) => {
-  const { handleLogout, authenticated } = useContext(Context);
+  const { handleLogout, authenticated, loggedUser } = useContext(Context);
 
   const isMobile = useIsMobile();
 
@@ -48,9 +48,11 @@ const Topbar: React.FC<ITopbar> = ({ setToastVisibility }: ITopbar) => {
 
           {!isMobile && (
             <section className="options">
-              <Link href="/register-users">
-                <Button primary>Adicionar Usuários</Button>
-              </Link>
+              {authenticated && loggedUser?.role !== 'USER' && (
+                <Link href="/register-users">
+                  <Button primary>Adicionar Usuários</Button>
+                </Link>
+              )}
 
               <Link href="/register-ads">
                 <Button primary>Anunciar</Button>
@@ -63,7 +65,6 @@ const Topbar: React.FC<ITopbar> = ({ setToastVisibility }: ITopbar) => {
               >
                 Chat
               </Button>
-
               {!authenticated && (
                 <Link href="/login">
                   <Button primary icon={FiUser}>

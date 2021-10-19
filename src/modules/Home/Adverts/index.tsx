@@ -16,19 +16,14 @@ const Adverts: React.FC = () => {
 
   const { filtersValue } = useSidebarFilter();
 
-  useEffect(() => {
-    async function getAnnouncement() {
-      try {
-        const response = await api.get(`/announcements?per_page=8&page=1}`);
-
-        setAnnouncements(response.data);
-      } catch (error: any) {
-        console.log(error?.response);
-      }
-    }
-
-    getAnnouncement();
-  }, []);
+  const renderFilter =
+    filtersValue.stateFilter ||
+    filtersValue.colorFilter ||
+    filtersValue.brandFilter ||
+    filtersValue.fromYearFilter ||
+    filtersValue.toYearFilter ||
+    filtersValue.fromPriceFilter ||
+    filtersValue.toPriceFilter;
 
   const old = {
     lowest_price: filtersValue.fromPriceFilter
@@ -50,10 +45,22 @@ const Adverts: React.FC = () => {
     .filter(k => old[k] !== '')
     .reduce((a, k) => ({ ...a, [k]: old[k] }), {});
 
-  async function getAnnouncementFiltered(page: number) {
+  async function getAnnouncement(page = 1) {
+    console.log('chamou', page);
+
+    try {
+      const response = await api.get(`/announcements?per_page=8&page=${page}`);
+
+      setAnnouncements(response.data);
+    } catch (error: any) {
+      console.log(error?.response);
+    }
+  }
+
+  async function getAnnouncementFiltered(page = announcementsPage) {
     try {
       const response = await api.get(
-        `/announcements-filter?per_page=8&page=${page + 1}`,
+        `/announcements-filter?per_page=8&page=${page}`,
         { params },
       );
 
@@ -64,33 +71,26 @@ const Adverts: React.FC = () => {
   }
 
   async function handlePageChange(page: number) {
-    try {
-      const response = await api.get(
-        `/announcements?per_page=8&page=${page + 1}`,
-      );
+    console.log(page, renderFilter);
 
-      setAnnouncements(response.data);
-    } catch (error: any) {
-      console.log(error?.response);
+    if (renderFilter) {
+      getAnnouncementFiltered(page);
+    } else {
+      getAnnouncement(page);
     }
   }
 
-  const renderFilter =
-    filtersValue.stateFilter ||
-    filtersValue.colorFilter ||
-    filtersValue.brandFilter ||
-    filtersValue.fromYearFilter ||
-    filtersValue.toYearFilter ||
-    filtersValue.fromPriceFilter ||
-    filtersValue.toPriceFilter;
+  useEffect(() => {
+    getAnnouncement();
+  }, []);
 
   useEffect(() => {
     if (!!renderFilter) {
-      getAnnouncementFiltered(announcementsPage);
+      getAnnouncementFiltered();
     } else {
-      handlePageChange(announcementsPage);
+      getAnnouncement();
     }
-  }, [announcementsPage, filtersValue]);
+  }, [filtersValue]);
 
   return (
     <>
@@ -109,7 +109,7 @@ const Adverts: React.FC = () => {
             marginPagesDisplayed={0}
             nextLabel={<IoIosArrowForward />}
             previousLabel={<IoIosArrowBack />}
-            onPageChange={({ selected }) => setAnnouncementsPage(selected)}
+            onPageChange={({ selected }) => handlePageChange(selected + 1)}
           />
         </Container>
       )}
