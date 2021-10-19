@@ -8,14 +8,14 @@ export const Container = styled.div`
 
   .images {
     .main-image {
-      width: 400px;
-      height: 400px;
+      width: 25rem;
+      height: 25rem;
       overflow: hidden;
 
       img {
         cursor: pointer;
         max-width: 100%;
-        border-radius: 32px;
+        border-radius: 2rem;
 
         height: 100%;
         width: 100%;
@@ -34,8 +34,8 @@ export const Container = styled.div`
       img {
         cursor: pointer;
         border-radius: 2rem;
-        width: 100px;
-        height: 100px;
+        width: 6.25rem;
+        height: 6.25rem;
 
         object-fit: cover;
       }
@@ -47,7 +47,7 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    width: 400px;
+    width: 32rem;
     row-gap: 2rem;
 
     h1 {
@@ -59,7 +59,7 @@ export const Container = styled.div`
     h3 {
       font-family: 'Big Shoulders Display';
       font-weight: bold;
-      font-size: 24px;
+      font-size: 1.5rem;
       color: #0b2926;
     }
 
@@ -68,7 +68,7 @@ export const Container = styled.div`
       align-items: center;
       justify-content: flex-start;
       font-family: Archivo;
-      font-size: 16px;
+      font-size: 1rem;
       color: #0b2926;
       column-gap: 0.5rem;
     }
@@ -93,7 +93,7 @@ export const Container = styled.div`
       flex-direction: column;
       align-items: center;
       width: 100%;
-      max-width: 400px;
+      max-width: 25rem;
       text-align: center;
     }
   }

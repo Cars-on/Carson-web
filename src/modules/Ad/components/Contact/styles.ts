@@ -5,7 +5,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  width: 416px;
+  width: 26rem;
   background: #ffffff;
   border-radius: 2rem;
   padding: 2rem;
@@ -29,14 +29,14 @@ export const Container = styled.div`
       h2 {
         font-family: Archivo;
         font-weight: 400;
-        font-size: 24px;
+        font-size: 1.5rem;
         color: #0b2926;
         margin-bottom: 0.5rem;
       }
 
       p {
         font-family: Archivo;
-        font-size: 16px;
+        font-size: 1rem;
         color: #a4b3b5;
         display: flex;
         column-gap: 0.5rem;
@@ -59,7 +59,7 @@ export const Container = styled.div`
 
     p {
       font-family: Archivo;
-      font-size: 16px;
+      font-size: 1rem;
       color: #0b2926;
       column-gap: 0.5rem;
     }

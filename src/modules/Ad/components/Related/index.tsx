@@ -8,9 +8,10 @@ import { Container } from './styles';
 
 interface IRelated extends HTMLAttributes<HTMLElement> {
   announcements: IAnnouncement[];
+  id_announcement: number | string;
 }
 
-const Related = ({ announcements }: IRelated) => {
+const Related = ({ announcements, id_announcement }: IRelated) => {
   const [sliders, setSliders] = useState<any[]>([]);
 
   useEffect(() => {
@@ -21,7 +22,11 @@ const Related = ({ announcements }: IRelated) => {
         local_slider.push(<CardAd announcement={announcement} />);
       });
 
-      setSliders(local_slider);
+      setSliders(
+        local_slider.filter(
+          item => item.props.announcement.id !== id_announcement,
+        ),
+      );
     }
   }, [announcements]);
   return (
