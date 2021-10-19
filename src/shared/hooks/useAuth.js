@@ -40,16 +40,16 @@ export default function useAuth() {
     } catch (err) {
       const errorMessage = err.response.data.message;
 
-      // if (errorMessage.includes('primeiro acesso')) {
-      //   setMessage('Primeiro acesso');
-      //   setDescription(errorMessage);
-      //   setShowToastNotification(true);
-      //   return;
-      // }
+      if (errorMessage.includes('primeiro acesso')) {
+        setMessage('Falha no Login');
+        setDescription(errorMessage);
+        setShowToastNotification(true);
+        return;
+      }
 
-      // setMessage('Falha ao fazer Login');
-      // setDescription(errorMessage);
-      // setShowToastNotification(true);
+      setMessage('Falha no Login');
+      setDescription(errorMessage);
+      setShowToastNotification(true);
 
       return console.log(err);
     }

@@ -1,8 +1,10 @@
 import React from 'react';
+
+import { ToastNotificationProvider } from './ToastNotification';
 import { UploadUsersModalProvider } from './UploadUsersModal';
 import { UploadAdsModalProvider } from './UploadAdsModal';
+import { AuthProvider } from './AuthContext/AuthContext';
 import { SidebarFilterProvider } from './SidebarFilter';
-import { ToastNotificationProvider } from './ToastNotification';
 
 interface ContextProps {
   children: React.ReactNode;
@@ -10,11 +12,13 @@ interface ContextProps {
 
 const ContextProvider = ({ children }: ContextProps) => (
   <ToastNotificationProvider>
-    <UploadAdsModalProvider>
-      <UploadUsersModalProvider>
-        <SidebarFilterProvider>{children}</SidebarFilterProvider>
-      </UploadUsersModalProvider>
-    </UploadAdsModalProvider>
+    <AuthProvider>
+      <UploadAdsModalProvider>
+        <UploadUsersModalProvider>
+          <SidebarFilterProvider>{children}</SidebarFilterProvider>
+        </UploadUsersModalProvider>
+      </UploadAdsModalProvider>
+    </AuthProvider>
   </ToastNotificationProvider>
 );
 
