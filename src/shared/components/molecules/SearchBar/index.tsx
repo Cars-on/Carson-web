@@ -21,13 +21,15 @@ const SearchBar: React.FC<ISearchBarProps> = ({
   function handleKeyPress(e: any) {
     if (e.key === 'Enter') {
       fetchFilterValue({ brandFilter: inputSearchValue });
-    } else if (e.key === 'Backspace' && inputSearchValue.length <= 1) {
-      removeFilterValue('brandFilter');
     }
   }
 
   function handleInputChange(e: any) {
     const searchValue = e?.target?.value;
+
+    if (searchValue.length < 1) {
+      removeFilterValue('brandFilter');
+    }
 
     setInputSearchValue(capitalize(searchValue));
   }
