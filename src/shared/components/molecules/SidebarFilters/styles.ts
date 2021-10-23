@@ -7,6 +7,9 @@ export const Container = styled.div`
 
   background: #ffffff;
 
+  hr:first-child {
+    margin: 0 0 2rem 0;
+  }
   hr {
     background: #a4b3b5;
 

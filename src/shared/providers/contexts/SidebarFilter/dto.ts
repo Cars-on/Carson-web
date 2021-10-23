@@ -4,6 +4,7 @@ export interface IFiltersValueProps {
   stateFilter: string;
   colorFilter: string;
   manufacturerFilter: string;
+  modelFilter: string;
   brandFilter: string;
   fromYearFilter: string;
   toYearFilter: string;
