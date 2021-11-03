@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import Link from 'next/link';
-import { FiMessageCircle, FiUser, FiLogOut } from 'react-icons/fi';
+import { FiMessageCircle, FiUser, FiLogOut, FiGrid } from 'react-icons/fi';
 
 import useIsMobile from '@/shared/hooks/useIsMobile';
 import SearchBar from '@/shared/components/molecules/SearchBar';
@@ -56,6 +56,12 @@ const Topbar: React.FC<ITopbar> = ({ setToastVisibility }: ITopbar) => {
 
               <Link href="/register-ads">
                 <Button primary>Anunciar</Button>
+              </Link>
+
+              <Link href="/announcements">
+                <Button primary icon={FiGrid}>
+                  Meus anuncios
+                </Button>
               </Link>
 
               <Button

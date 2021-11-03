@@ -1,20 +1,20 @@
 export interface IAnnouncement {
-  advertiser_code: string;
-  brand: string;
-  brand_year: string;
-  cnpj: string;
-  cpf: string;
-  created_at: string;
-  description: string;
   id: string;
   user_id: string;
+  description: string;
+  cnpj: string;
+  cpf: string;
   lot: string;
-  manufacturer: string;
-  manufacturer_year: string;
-  photos: Array<string>;
   model: string;
   price: string;
-  updated_at: string;
+  brand: string;
+  brand_year: string;
+  manufacturer: string;
+  manufacturer_year: string;
+  advertiser_code: string;
+  photos?: Array<string>;
+  created_at?: string;
+  updated_at?: string;
 }
 
 export interface IUser {
