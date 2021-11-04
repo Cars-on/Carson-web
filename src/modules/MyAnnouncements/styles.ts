@@ -2,7 +2,16 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const Content = styled.div`
+  display: flex;
   flex-direction: column;
+
+  width: 100%;
+  max-width: 1800px;
 
   min-height: calc(100vh - 96px);
   height: max-content;
