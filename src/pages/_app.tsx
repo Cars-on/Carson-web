@@ -1,5 +1,5 @@
 import type { AppProps } from 'next/app';
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 
 import { GlobalStyle } from '@/shared/styles/global';
 import Head from '@/shared/seo/Head';
@@ -9,6 +9,8 @@ import UploadUsersModal from '@/shared/components/organisms/UploadUsersModal';
 import UploadAdsModal from '@/shared/components/organisms/UploadAdsModal ';
 import Copyrights from '@/shared/components/molecules/Copyrights';
 import ToastNotification from '@/shared/components/molecules/ToastNotification';
+import { api } from '@/shared/providers/api';
+import { getToken } from '@/shared/utils/auth';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [toastVisibility, setToastVisibility] = useState(false);
@@ -23,6 +25,17 @@ function MyApp({ Component, pageProps }: AppProps) {
       return () => clearTimeout(timerToCloseModal);
     }
   }, [toastVisibility]);
+
+  useLayoutEffect(() => {
+    api.interceptors.request.use(config => {
+      const param = config;
+      const token = getToken();
+
+      if (token) param.headers.Authorization = `Bearer ${token}`;
+
+      return config;
+    });
+  }, []);
 
   return (
     <>

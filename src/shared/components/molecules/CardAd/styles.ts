@@ -2,10 +2,15 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
+  position: relative;
+
+  cursor: pointer;
 
   transition: all 0.3s;
+
+  z-index: 2;
 
   :hover {
     transition: all 0.3s;
@@ -16,9 +21,11 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
 
+    z-index: 1;
     gap: 14px;
 
-    padding: 0 0 0 17px;
+    margin: 0 0 0 9px;
+    padding: 0 0 0 18px;
     border-left: 1px solid #a4b3b5;
 
     h1 {

@@ -48,9 +48,9 @@ export const Container = styled.button<IContainerProps>`
 
   svg {
     width: 18px;
-    height: 18px;
+    height: 20px;
     border-radius: 50%;
-    padding: 11px;
+    padding: 10px 12px;
     box-sizing: content-box;
     background: var(--white);
     color: var(--green-aqua);

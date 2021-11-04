@@ -1,19 +1,27 @@
+import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
 
 import car_thumb from '@/shared/assets/illustrations/thumbnail.png';
-
 import { api } from '@/shared/providers/api';
 import { IAnnouncement, IUser } from '@/shared/dto';
 
+import DeleteButton from '../../atoms/DeleteButton';
+import EditButton from '../../atoms/EditButton';
 import { Container } from './styles';
 
 interface CardAdProps {
   announcement: IAnnouncement;
+  isDeleteable?: boolean;
+  isEditable?: boolean;
 }
 
-const CardAd = ({ announcement }: CardAdProps) => {
+const CardAd = ({ announcement, isDeleteable, isEditable }: CardAdProps) => {
+  const router = useRouter();
   const [adOwner, setAdOwner] = useState<IUser>();
+
+  function handleClickInAnnouncement() {
+    router.push(`/ad/${announcement.id}`);
+  }
 
   useEffect(() => {
     async function getUserInfo() {
@@ -34,11 +42,17 @@ const CardAd = ({ announcement }: CardAdProps) => {
       <img
         src={announcement?.photos?.length ? announcement?.photos[0] : car_thumb}
         alt=""
+        onClick={handleClickInAnnouncement}
       />
 
+      {isEditable && <EditButton onClick={() => console.log('e')} />}
+      {isDeleteable && <DeleteButton onClick={() => console.log('e2')} />}
+
       <section className="infos">
-        <h1>{`${announcement?.manufacturer} ${announcement?.brand} ${announcement?.model}`}</h1>
-        <span>
+        <h1
+          onClick={handleClickInAnnouncement}
+        >{`${announcement?.manufacturer} ${announcement?.brand} ${announcement?.model}`}</h1>
+        <span onClick={handleClickInAnnouncement}>
           {Intl.NumberFormat('pt-BR', {
             style: 'currency',
             currency: 'BRL',
@@ -50,9 +64,6 @@ const CardAd = ({ announcement }: CardAdProps) => {
         </section>
 
         <p>{adOwner?.address}</p>
-        <Link href={`/ad/${announcement?.id}`}>
-          <button type="button">Comprar</button>
-        </Link>
       </section>
     </Container>
   );
