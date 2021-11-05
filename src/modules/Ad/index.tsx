@@ -69,6 +69,8 @@ const Ad = ({ id }: IAd) => {
             localization={adOwner?.address}
             model={adData?.manufacturer}
             description={adData?.description}
+            views={adData?.viewed}
+            created_at={adData?.created_at}
           />
           <Contact name={adOwner?.name} phone={adOwner?.phone} />
         </div>

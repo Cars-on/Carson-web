@@ -1,4 +1,5 @@
 import React, { useState, useEffect, HTMLAttributes } from 'react';
+import moment from 'moment';
 
 import calendarIcon from '@/shared/assets/icons/calendar-icon.png';
 import localizationIcon from '@/shared/assets/icons/localization-icon.png';
@@ -18,6 +19,8 @@ interface ICarInfoProps extends HTMLAttributes<HTMLElement> {
   model: string;
   description: string;
   userId: string;
+  created_at?: string;
+  views?: number;
 }
 
 const CarInfo = ({
@@ -29,6 +32,8 @@ const CarInfo = ({
   model,
   userId,
   description,
+  created_at,
+  views,
 }: ICarInfoProps) => {
   const [mainPhoto, setMainPhoto] = useState(car_thumb);
 
@@ -67,7 +72,14 @@ const CarInfo = ({
       </div>
 
       <div className="details">
-        <h1>{name}</h1>
+        <section className="metrics">
+          <h1>{name}</h1>
+
+          <small>
+            Publicado em {moment(created_at).format('DD/MM/YYYY - h:mm a')}
+          </small>
+          {ownerIsLogged && <small>Visualizações: {views}</small>}
+        </section>
         <h3>{price}</h3>
         <p>
           <img src={calendarIcon} alt="Icone ano do carro" />

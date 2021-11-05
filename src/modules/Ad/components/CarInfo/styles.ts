@@ -26,14 +26,14 @@ export const Container = styled.div`
     .abc-images {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       column-gap: 1rem;
       width: 100%;
       margin-top: 1rem;
 
       img {
         cursor: pointer;
-        border-radius: 2rem;
+        border-radius: 1rem;
         width: 6.25rem;
         height: 6.25rem;
 
@@ -48,12 +48,22 @@ export const Container = styled.div`
     align-items: flex-start;
     justify-content: center;
     width: 32rem;
-    row-gap: 2rem;
+    row-gap: 1rem;
 
     h1 {
       font-family: 'Big Shoulders Display';
       font-size: 36px;
       color: #38bcac;
+    }
+
+    .metrics {
+      display: flex;
+      flex-direction: column;
+
+      small {
+        font-family: Archivo;
+        color: var(--black-70);
+      }
     }
 
     h3 {

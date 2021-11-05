@@ -24,7 +24,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/shared/components/organisms/Store/Provider.jsx"
+    "src/shared/components/organisms/Store/Provider.jsx",
+    "src/shared/hooks/useAuth.js"
   ],
   "exclude": ["node_modules"]
 }
