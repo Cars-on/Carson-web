@@ -10,6 +10,8 @@ export const Container = styled.div<HTMLAttributes<HTMLDivElement>>`
   align-items: center;
   justify-content: center;
 
+  cursor: pointer;
+
   width: 12.375rem;
   height: 3rem;
 
