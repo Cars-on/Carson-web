@@ -1,16 +1,24 @@
-import React, { ButtonHTMLAttributes } from 'react';
+import React, { ButtonHTMLAttributes, useState } from 'react';
 import { FiTrash } from 'react-icons/fi';
 
-import { Container } from './styles';
+import { Button } from './styles';
 
-interface IDeleteButton extends ButtonHTMLAttributes<HTMLElement> {}
+interface IDeleteButton extends ButtonHTMLAttributes<HTMLElement> {
+  onDelete: () => void;
+}
 
-const DeleteButton = ({ ...rest }: IDeleteButton) => {
+const DeleteButton = ({ onDelete, ...rest }: IDeleteButton) => {
+  function handleDelete() {
+    if (onDelete) onDelete();
+  }
+
   return (
-    <Container {...rest}>
-      <FiTrash />
-      Deletar
-    </Container>
+    <>
+      <Button {...rest} onClick={handleDelete}>
+        <FiTrash />
+        Deletar
+      </Button>
+    </>
   );
 };
 

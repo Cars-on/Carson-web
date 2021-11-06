@@ -22,11 +22,11 @@ const MyAnnouncements = () => {
   return (
     <Container>
       <Content>
-        <h1>Meus anuncios</h1>
+        <h1>Meus anúncios</h1>
 
         <Announcements>
           {announcements?.map(announce => (
-            <CardAd announcement={announce} />
+            <CardAd announcement={announce} isDeleteable />
           ))}
         </Announcements>
       </Content>

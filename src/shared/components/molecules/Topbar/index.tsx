@@ -58,19 +58,24 @@ const Topbar: React.FC<ITopbar> = ({ setToastVisibility }: ITopbar) => {
                 <Button primary>Anunciar</Button>
               </Link>
 
-              <Link href="/announcements">
-                <Button primary icon={FiGrid}>
-                  Meus anuncios
-                </Button>
-              </Link>
+              {authenticated && (
+                <Link href="/announcements">
+                  <Button primary icon={FiGrid}>
+                    Meus anúncios
+                  </Button>
+                </Link>
+              )}
 
-              <Button
-                onClick={() => setToastVisibility(true)}
-                primary
-                icon={FiMessageCircle}
-              >
-                Chat
-              </Button>
+              {authenticated && (
+                <Button
+                  onClick={() => setToastVisibility(true)}
+                  primary
+                  icon={FiMessageCircle}
+                >
+                  Chat
+                </Button>
+              )}
+
               {!authenticated && (
                 <Link href="/login">
                   <Button primary icon={FiUser}>
