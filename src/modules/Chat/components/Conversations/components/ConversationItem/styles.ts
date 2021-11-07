@@ -7,18 +7,26 @@ export const Container = styled.div`
 
   padding: 1rem;
 
-  max-width: 32rem;
   width: 100%;
   height: 6rem;
+
+  background: white;
+  border-radius: 2rem;
+  filter: drop-shadow(-5px 5px 10px rgba(0, 0, 0, 0.25));
 `;
 
 export const Image = styled.img`
-  width: 5rem;
-  height: 5rem;
-  border-radius: 1.75rem;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 1rem;
 `;
 
 export const TextContent = styled.div`
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+
+  max-width: 85%;
   margin: 0 0 0 1rem;
 `;
 
@@ -26,6 +34,9 @@ export const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  width: 100%;
+  margin: 0 0 1rem 0;
 `;
 
 export const Title = styled.h1`
@@ -48,4 +59,8 @@ export const Paragraph = styled.p`
   font-weight: 400;
   line-height: 1rem;
   color: var(--green-dark);
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
