@@ -1,41 +1,46 @@
 import React, { useState, useEffect, HTMLAttributes } from 'react';
-import moment from 'moment';
+import { useRouter } from 'next/router';
 
-import calendarIcon from '@/shared/assets/icons/calendar-icon.png';
-import localizationIcon from '@/shared/assets/icons/localization-icon.png';
-import tagIcon from '@/shared/assets/icons/tag-icon.png';
-
-import { Container } from './styles';
-import InputImages from './components/InputImages';
-
+import { api } from '@/shared/providers/api';
 import car_thumb from '@/shared/assets/illustrations/thumbnail.png';
+import DeleteAnnounceModal from '@/shared/components/molecules/DeleteAnnounceModal';
+
+import CarSpecs from './components/CarSpecs';
+import EditButton from './components/EditButton';
+import DeleteButton from './components/DeleteButton';
+import InputImages from './components/InputImages';
+import UpdateFields from './components/UpdateFields';
+import { Container, OwnerOptions } from './styles';
+
+interface ICarSpecifications {
+  id: string;
+  brand: string;
+  price: number;
+  manufacturer_year: string;
+  manufacturer: string;
+  description: string;
+  viewed: string;
+  created_at: string;
+}
 
 interface ICarInfoProps extends HTMLAttributes<HTMLElement> {
   photos: Array<string>;
-  name: string;
-  price: string;
-  year: string;
-  localization: string;
-  model: string;
-  description: string;
   userId: string;
-  created_at?: string;
-  views?: number;
+  localization: string;
+  specifications: ICarSpecifications;
 }
 
 const CarInfo = ({
   photos,
-  name,
-  price,
-  year,
-  localization,
-  model,
   userId,
-  description,
-  created_at,
-  views,
+  specifications,
+  localization,
 }: ICarInfoProps) => {
+  const router = useRouter();
+
   const [mainPhoto, setMainPhoto] = useState(car_thumb);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showUpdateFields, setShowUpdateFields] = useState(false);
 
   const localStorageUser =
     typeof window !== 'undefined' ? localStorage?.getItem('@crs:user') : null;
@@ -43,6 +48,21 @@ const CarInfo = ({
   const userIdLocalStorage = isUserLogged?.id;
 
   const ownerIsLogged = userId === userIdLocalStorage;
+
+  function toggleUpdateFields() {
+    setShowUpdateFields(!showUpdateFields);
+  }
+
+  function toggleDeleteModalVisibility() {
+    setShowDeleteModal(!showDeleteModal);
+  }
+
+  async function handleDeleteAnnoucemente() {
+    await api.delete(`/announcements-users/${specifications?.id}`);
+
+    toggleDeleteModalVisibility();
+    router.push('/announcements');
+  }
 
   useEffect(() => {
     if (photos?.length) {
@@ -53,51 +73,59 @@ const CarInfo = ({
   }, photos);
 
   return (
-    <Container>
-      <div className="images">
-        <div className="main-image">
-          <img src={mainPhoto} alt="" />
+    <>
+      {showDeleteModal && (
+        <DeleteAnnounceModal
+          onCancel={toggleDeleteModalVisibility}
+          onDelete={handleDeleteAnnoucemente}
+        />
+      )}
+
+      <Container>
+        <div className="images">
+          <div className="main-image">
+            <img src={mainPhoto} alt="" />
+          </div>
+          <div className="abc-images">
+            {photos?.map(photo => (
+              <img
+                src={photo}
+                onClick={() => {
+                  setMainPhoto(photo);
+                }}
+                alt=""
+              />
+            ))}
+          </div>
         </div>
-        <div className="abc-images">
-          {photos?.map(photo => (
-            <img
-              src={photo}
-              onClick={() => {
-                setMainPhoto(photo);
-              }}
-              alt=""
+
+        <div className="details">
+          {showUpdateFields ? (
+            <UpdateFields
+              specifications={specifications}
+              localization={localization}
+              onCancel={toggleUpdateFields}
             />
-          ))}
+          ) : (
+            <>
+              <CarSpecs
+                specifications={specifications}
+                ownerIsLogged={ownerIsLogged}
+                localization={localization}
+              />
+
+              {ownerIsLogged && (
+                <OwnerOptions>
+                  <InputImages />
+                  <EditButton onEdit={toggleUpdateFields} />
+                  <DeleteButton onDelete={toggleDeleteModalVisibility} />
+                </OwnerOptions>
+              )}
+            </>
+          )}
         </div>
-      </div>
-
-      <div className="details">
-        <section className="metrics">
-          <h1>{name}</h1>
-
-          <small>
-            Publicado em {moment(created_at).format('DD/MM/YYYY - h:mm a')}
-          </small>
-          {ownerIsLogged && <small>Visualizações: {views}</small>}
-        </section>
-        <h3>{price}</h3>
-        <p>
-          <img src={calendarIcon} alt="Icone ano do carro" />
-          {year}
-        </p>
-        <p>
-          <img src={localizationIcon} alt="Icone de localização" />
-          {localization}
-        </p>
-        <p>
-          <img src={tagIcon} alt="Icone do modelo do carro" />
-          {model}
-        </p>
-        <p>{description}</p>
-
-        {ownerIsLogged && <InputImages />}
-      </div>
-    </Container>
+      </Container>
+    </>
   );
 };
 

@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 0.5rem;
 
   cursor: pointer;
@@ -9,13 +11,14 @@ export const Container = styled.div`
   background: var(--green-aqua);
   border: none;
 
+  font-family: Archivo;
   font-size: 1.125rem;
-  font-family: 'Archivo', sans-serif;
-  font-weight: 500;
-  border-radius: 0.5rem;
-  padding: 0.5rem 0.7rem;
+  font-style: normal;
+  font-weight: 700;
 
-  position: absolute;
-  bottom: 40px;
-  right: 0;
+  cursor: pointer;
+  width: 10rem;
+  height: 3rem;
+  box-sizing: border-box;
+  border-radius: 2rem;
 `;
