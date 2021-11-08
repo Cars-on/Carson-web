@@ -59,18 +59,9 @@ const Ad = ({ id }: IAd) => {
         <div className="ad-info">
           <CarInfo
             userId={adOwner?.id}
-            photos={adData?.photos?.slice(0, 3)}
-            name={adData?.brand}
-            price={Intl.NumberFormat('pt-BR', {
-              style: 'currency',
-              currency: 'BRL',
-            }).format(adData?.price)}
-            year={adData?.manufacturer_year}
             localization={adOwner?.address}
-            model={adData?.manufacturer}
-            description={adData?.description}
-            views={adData?.viewed}
-            created_at={adData?.created_at}
+            photos={adData?.photos?.slice(0, 3)}
+            specifications={adData}
           />
           <Contact name={adOwner?.name} phone={adOwner?.phone} />
         </div>

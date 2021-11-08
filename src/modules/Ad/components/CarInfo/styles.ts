@@ -49,39 +49,6 @@ export const Container = styled.div`
     justify-content: center;
     width: 32rem;
     row-gap: 1rem;
-
-    h1 {
-      font-family: 'Big Shoulders Display';
-      font-size: 36px;
-      color: #38bcac;
-    }
-
-    .metrics {
-      display: flex;
-      flex-direction: column;
-
-      small {
-        font-family: Archivo;
-        color: var(--black-70);
-      }
-    }
-
-    h3 {
-      font-family: 'Big Shoulders Display';
-      font-weight: bold;
-      font-size: 1.5rem;
-      color: #0b2926;
-    }
-
-    p {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      font-family: Archivo;
-      font-size: 1rem;
-      color: #0b2926;
-      column-gap: 0.5rem;
-    }
   }
 
   @media (max-width: 780px) {
@@ -99,8 +66,6 @@ export const Container = styled.div`
     }
 
     .details {
-      display: flex;
-      flex-direction: column;
       align-items: center;
       width: 100%;
       max-width: 25rem;
@@ -113,4 +78,11 @@ export const Container = styled.div`
       zoom: 67%;
     }
   }
+`;
+
+export const OwnerOptions = styled.section`
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
 `;

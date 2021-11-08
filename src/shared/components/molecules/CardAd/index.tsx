@@ -5,36 +5,18 @@ import car_thumb from '@/shared/assets/illustrations/thumbnail.png';
 import { api } from '@/shared/providers/api';
 import { IAnnouncement, IUser } from '@/shared/dto';
 
-import DeleteAnnounceModal from '../DeleteAnnounceModal';
-import DeleteButton from '../../atoms/DeleteButton';
-import EditButton from '../../atoms/EditButton';
 import { Container } from './styles';
 
 interface CardAdProps {
   announcement: IAnnouncement;
-  isDeleteable?: boolean;
-  isEditable?: boolean;
 }
 
-const CardAd = ({ announcement, isDeleteable, isEditable }: CardAdProps) => {
+const CardAd = ({ announcement }: CardAdProps) => {
   const router = useRouter();
   const [adOwner, setAdOwner] = useState<IUser>();
 
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
-
-  function toggleModalVisibility() {
-    setShowDeleteModal(!showDeleteModal);
-  }
-
   function handleClickInAnnouncement() {
     router.push(`/ad/${announcement.id}`);
-  }
-
-  async function handleDeleteAnnoucemente() {
-    await api.delete(`/announcements-users/${announcement?.id}`);
-
-    toggleModalVisibility();
-    location.reload();
   }
 
   useEffect(() => {
@@ -53,13 +35,6 @@ const CardAd = ({ announcement, isDeleteable, isEditable }: CardAdProps) => {
 
   return (
     <>
-      {showDeleteModal && (
-        <DeleteAnnounceModal
-          onCancel={toggleModalVisibility}
-          onDelete={handleDeleteAnnoucemente}
-        />
-      )}
-
       <Container>
         <img
           src={
@@ -68,9 +43,6 @@ const CardAd = ({ announcement, isDeleteable, isEditable }: CardAdProps) => {
           alt=""
           onClick={handleClickInAnnouncement}
         />
-
-        {isEditable && <EditButton onClick={() => console.log('e')} />}
-        {isDeleteable && <DeleteButton onDelete={toggleModalVisibility} />}
 
         <section className="infos">
           <h1
