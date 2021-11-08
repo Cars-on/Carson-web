@@ -26,14 +26,14 @@ export const Container = styled.div`
     .abc-images {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       column-gap: 1rem;
       width: 100%;
       margin-top: 1rem;
 
       img {
         cursor: pointer;
-        border-radius: 2rem;
+        border-radius: 1rem;
         width: 6.25rem;
         height: 6.25rem;
 
@@ -48,30 +48,7 @@ export const Container = styled.div`
     align-items: flex-start;
     justify-content: center;
     width: 32rem;
-    row-gap: 2rem;
-
-    h1 {
-      font-family: 'Big Shoulders Display';
-      font-size: 36px;
-      color: #38bcac;
-    }
-
-    h3 {
-      font-family: 'Big Shoulders Display';
-      font-weight: bold;
-      font-size: 1.5rem;
-      color: #0b2926;
-    }
-
-    p {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      font-family: Archivo;
-      font-size: 1rem;
-      color: #0b2926;
-      column-gap: 0.5rem;
-    }
+    row-gap: 1rem;
   }
 
   @media (max-width: 780px) {
@@ -89,8 +66,6 @@ export const Container = styled.div`
     }
 
     .details {
-      display: flex;
-      flex-direction: column;
       align-items: center;
       width: 100%;
       max-width: 25rem;
@@ -103,4 +78,11 @@ export const Container = styled.div`
       zoom: 67%;
     }
   }
+`;
+
+export const OwnerOptions = styled.section`
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
 `;

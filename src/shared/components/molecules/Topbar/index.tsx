@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import Link from 'next/link';
-import { FiMessageCircle, FiUser, FiLogOut } from 'react-icons/fi';
+import { FiMessageCircle, FiUser, FiLogOut, FiGrid } from 'react-icons/fi';
 
 import useIsMobile from '@/shared/hooks/useIsMobile';
 import SearchBar from '@/shared/components/molecules/SearchBar';
@@ -26,6 +26,12 @@ const Topbar: React.FC<ITopbar> = ({ setToastVisibility }: ITopbar) => {
 
   function handleOpenMenuMobile() {
     setMenuMobile(!showMenuMobile);
+  }
+
+  function handleOpenUserChat() {
+    window.open(
+      `http://localhost:9999/chat.html?name=${loggedUser?.name}&email=${loggedUser?.email}`,
+    );
   }
 
   return (
@@ -58,13 +64,24 @@ const Topbar: React.FC<ITopbar> = ({ setToastVisibility }: ITopbar) => {
                 <Button primary>Anunciar</Button>
               </Link>
 
-              <Button
-                onClick={() => setToastVisibility(true)}
-                primary
-                icon={FiMessageCircle}
-              >
-                Chat
-              </Button>
+              {authenticated && (
+                <Link href="/announcements">
+                  <Button primary icon={FiGrid}>
+                    Meus anúncios
+                  </Button>
+                </Link>
+              )}
+
+              {authenticated && (
+                <Button
+                  onClick={handleOpenUserChat}
+                  primary
+                  icon={FiMessageCircle}
+                >
+                  Chat
+                </Button>
+              )}
+
               {!authenticated && (
                 <Link href="/login">
                   <Button primary icon={FiUser}>

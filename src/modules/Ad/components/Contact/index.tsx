@@ -8,9 +8,18 @@ import { Container } from './styles';
 interface IContactProps extends HTMLAttributes<HTMLElement> {
   name: string;
   phone: string;
+  email: string;
 }
 
-const Contact = ({ name, phone }: IContactProps) => {
+const Contact = ({ name, email, phone }: IContactProps) => {
+  function handleOpenChat() {
+    const loggedUser = JSON.parse(localStorage.getItem('@crs:user'));
+
+    window.open(
+      `http://localhost:9999/chat.html?name=${loggedUser?.name}&email=${loggedUser?.email}&ad_owner_name=${name}&ad_owner_email=${email}`,
+    );
+  }
+
   return (
     <Container>
       <div className="user-info">
@@ -23,7 +32,7 @@ const Contact = ({ name, phone }: IContactProps) => {
         </div>
       </div>
       <div className="send-message">
-        <Button>Enviar Mensagem</Button>
+        <Button onClick={handleOpenChat}>Enviar Mensagem</Button>
       </div>
       <div className="security-advice">
         <img src={shieldIcon} alt="Dica de Segurança" />

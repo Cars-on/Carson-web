@@ -1,8 +1,7 @@
+import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
 
 import car_thumb from '@/shared/assets/illustrations/thumbnail.png';
-
 import { api } from '@/shared/providers/api';
 import { IAnnouncement, IUser } from '@/shared/dto';
 
@@ -13,7 +12,12 @@ interface CardAdProps {
 }
 
 const CardAd = ({ announcement }: CardAdProps) => {
+  const router = useRouter();
   const [adOwner, setAdOwner] = useState<IUser>();
+
+  function handleClickInAnnouncement() {
+    router.push(`/ad/${announcement.id}`);
+  }
 
   useEffect(() => {
     async function getUserInfo() {
@@ -30,31 +34,35 @@ const CardAd = ({ announcement }: CardAdProps) => {
   }, [announcement]);
 
   return (
-    <Container>
-      <img
-        src={announcement?.photos?.length ? announcement?.photos[0] : car_thumb}
-        alt=""
-      />
+    <>
+      <Container>
+        <img
+          src={
+            announcement?.photos?.length ? announcement?.photos[0] : car_thumb
+          }
+          alt=""
+          onClick={handleClickInAnnouncement}
+        />
 
-      <section className="infos">
-        <h1>{`${announcement?.manufacturer} ${announcement?.brand} ${announcement?.model}`}</h1>
-        <span>
-          {Intl.NumberFormat('pt-BR', {
-            style: 'currency',
-            currency: 'BRL',
-          }).format(Number(announcement?.price))}
-        </span>
+        <section className="infos">
+          <h1
+            onClick={handleClickInAnnouncement}
+          >{`${announcement?.manufacturer} ${announcement?.brand} ${announcement?.model}`}</h1>
+          <span onClick={handleClickInAnnouncement}>
+            {Intl.NumberFormat('pt-BR', {
+              style: 'currency',
+              currency: 'BRL',
+            }).format(Number(announcement?.price))}
+          </span>
 
-        <section>
-          <p>{announcement?.manufacturer_year}</p>
+          <section>
+            <p>{announcement?.manufacturer_year}</p>
+          </section>
+
+          <p>{adOwner?.address}</p>
         </section>
-
-        <p>{adOwner?.address}</p>
-        <Link href={`/ad/${announcement?.id}`}>
-          <button type="button">Comprar</button>
-        </Link>
-      </section>
-    </Container>
+      </Container>
+    </>
   );
 };
 

@@ -5,6 +5,7 @@ import {
   FiMessageCircle,
   FiShoppingBag,
   FiUser,
+  FiGrid,
 } from 'react-icons/fi';
 
 import { Context } from '@/shared/providers/contexts/AuthContext/AuthContext';
@@ -36,16 +37,30 @@ const MobileMenuModal = ({ onClose }: MobileMenuModalProps) => {
             Anunciar
           </li>
         </Link>
+
+        {authenticated && (
+          <Link href="/register_ads">
+            <li onClick={handleCloseModal}>
+              <FiGrid />
+              Meus anúncios
+            </li>
+          </Link>
+        )}
+
         <Link href="/register-users">
           <li onClick={handleCloseModal}>
             <FiShoppingBag />
             Adicionar Usuários
           </li>
         </Link>
-        <li onClick={handleCloseModal}>
-          <FiMessageCircle />
-          Chat
-        </li>
+
+        {authenticated && (
+          <li onClick={handleCloseModal}>
+            <FiMessageCircle />
+            Chat
+          </li>
+        )}
+
         {authenticated && (
           <li onClick={handleLogout}>
             <FiLogOut />
