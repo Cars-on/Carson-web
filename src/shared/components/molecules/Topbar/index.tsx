@@ -28,6 +28,12 @@ const Topbar: React.FC<ITopbar> = ({ setToastVisibility }: ITopbar) => {
     setMenuMobile(!showMenuMobile);
   }
 
+  function handleOpenUserChat() {
+    window.open(
+      `http://localhost:9999/chat.html?name=${loggedUser?.name}&email=${loggedUser?.email}`,
+    );
+  }
+
   return (
     <>
       {isMobile && showMenuMobile && (
@@ -68,7 +74,7 @@ const Topbar: React.FC<ITopbar> = ({ setToastVisibility }: ITopbar) => {
 
               {authenticated && (
                 <Button
-                  onClick={() => setToastVisibility(true)}
+                  onClick={handleOpenUserChat}
                   primary
                   icon={FiMessageCircle}
                 >

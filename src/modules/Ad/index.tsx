@@ -63,7 +63,11 @@ const Ad = ({ id }: IAd) => {
             photos={adData?.photos?.slice(0, 3)}
             specifications={adData}
           />
-          <Contact name={adOwner?.name} phone={adOwner?.phone} />
+          <Contact
+            name={adOwner?.name}
+            phone={adOwner?.phone}
+            email={adOwner.email}
+          />
         </div>
 
         <Related id_announcement={id} announcements={announcements} />
