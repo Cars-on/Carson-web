@@ -13,6 +13,10 @@ export const Container = styled.div`
 
   position: absolute;
   z-index: 1;
+
+  @media (max-width: 1216px) {
+    width: 95%;
+  }
 `;
 
 export const CarInfoContainer = styled.div`

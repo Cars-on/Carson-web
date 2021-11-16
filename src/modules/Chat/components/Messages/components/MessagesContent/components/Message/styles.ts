@@ -16,26 +16,28 @@ export const Container = styled.div<IMessageContainerProps>`
 `;
 
 export const Content = styled.div`
-  max-width: 42rem;
+  max-width: 50rem;
+  padding: 1rem;
 
   background: #ffffff;
   border-radius: 2rem;
   filter: drop-shadow(-1.5px 1.5px 2px rgba(0, 0, 0, 0.25));
+
+  @media (max-width: 1216px) {
+    max-width: 35rem;
+  }
 `;
 
-export const Paragraph = styled.p`
+export const Paragraph = styled.span`
   display: flex;
-  height: max-content;
-  white-space: break-spaces;
-  max-width: 40rem;
-  padding: 1rem;
+
+  overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: pre-wrap;
 
   font-family: Archivo;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   line-height: 1rem;
-
-  white-space: initial;
-  overflow: hidden;
 `;
