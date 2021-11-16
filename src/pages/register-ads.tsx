@@ -1,19 +1,19 @@
-import React, { useContext } from 'react';
-
+import React, { useContext, useEffect } from 'react';
 import type { NextPage } from 'next';
 
-import { Context } from '@/shared/providers/contexts/AuthContext/AuthContext';
-
 import RegisterAdsModule from '@/modules/Register/Ads';
+import { Context } from '@/shared/providers/contexts/AuthContext/AuthContext';
 
 const RegisterAds: NextPage = () => {
   const { authenticated } = useContext(Context);
 
-  return (
-    <>
-      {authenticated ? <RegisterAdsModule /> : window.location.assign('/login')}
-    </>
-  );
+  useEffect(() => {
+    if (!authenticated) {
+      window.location.assign('/login');
+    }
+  }, [authenticated]);
+
+  return <>{authenticated && <RegisterAdsModule />}</>;
 };
 
 export default RegisterAds;

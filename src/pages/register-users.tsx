@@ -1,23 +1,19 @@
+import React, { useContext, useEffect } from 'react';
 import type { NextPage } from 'next';
 
-import React, { useContext } from 'react';
-
 import RegisterUsersModule from '@/modules/Register/Users';
-
 import { Context } from '@/shared/providers/contexts/AuthContext/AuthContext';
 
 const RegisterUsers: NextPage = () => {
   const { authenticated } = useContext(Context);
 
-  return (
-    <>
-      {authenticated ? (
-        <RegisterUsersModule />
-      ) : (
-        window.location.assign('/login')
-      )}
-    </>
-  );
+  useEffect(() => {
+    if (!authenticated) {
+      window.location.assign('/login');
+    }
+  }, [authenticated]);
+
+  return <>{authenticated && <RegisterUsersModule />}</>;
 };
 
 export default RegisterUsers;
