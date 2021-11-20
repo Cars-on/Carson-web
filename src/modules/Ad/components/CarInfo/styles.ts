@@ -39,6 +39,10 @@ export const Container = styled.div`
 
         object-fit: cover;
       }
+
+      @media (max-width: 900px) {
+        justify-content: center;
+      }
     }
   }
 
@@ -85,4 +89,9 @@ export const OwnerOptions = styled.section`
   align-items: center;
 
   gap: 10px;
+
+  @media (max-width: 900px) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 `;

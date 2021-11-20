@@ -39,7 +39,7 @@ const MobileMenuModal = ({ onClose }: MobileMenuModalProps) => {
         </Link>
 
         {authenticated && (
-          <Link href="/register_ads">
+          <Link href="/announcements">
             <li onClick={handleCloseModal}>
               <FiGrid />
               Meus anúncios
