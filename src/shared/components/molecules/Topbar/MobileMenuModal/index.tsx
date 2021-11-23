@@ -31,7 +31,7 @@ const MobileMenuModal = ({ onClose }: MobileMenuModalProps) => {
             Entrar
           </li>
         )}
-        <Link href="/register_ads">
+        <Link href="/register-ads">
           <li onClick={handleCloseModal}>
             <FiShoppingBag />
             Anunciar

@@ -37,10 +37,6 @@ export const Container = styled.div`
     padding: 5px 10px;
     border-radius: 0.5rem;
   }
-
-  @media (max-width: 900px) {
-    position: relative;
-  }
 `;
 
 export const Content = styled.div`
