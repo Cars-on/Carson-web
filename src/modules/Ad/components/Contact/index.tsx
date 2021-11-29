@@ -1,4 +1,6 @@
 import React, { HTMLAttributes } from 'react';
+import { useRouter } from 'next/router';
+
 import Button from '@/shared/components/atoms/TopBarButton';
 import shieldIcon from '@/shared/assets/icons/shield-icon.png';
 import phoneIcone from '@/shared/assets/icons/phone-icon.png';
@@ -12,11 +14,12 @@ interface IContactProps extends HTMLAttributes<HTMLElement> {
 }
 
 const Contact = ({ name, email, phone }: IContactProps) => {
+  const router = useRouter();
   function handleOpenChat() {
     const loggedUser = JSON.parse(localStorage.getItem('@crs:user'));
 
-    window.open(
-      `http://localhost:9999/chat.html?name=${loggedUser?.name}&email=${loggedUser?.email}&ad_owner_name=${name}&ad_owner_email=${email}`,
+    router.push(
+      `/chat?name=${loggedUser?.name}&email=${loggedUser?.email}&ad_owner_name=${name}&ad_owner_email=${email}`,
     );
   }
 

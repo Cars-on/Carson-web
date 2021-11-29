@@ -12,12 +12,14 @@ import MobileMenuModal from './MobileMenuModal';
 import { Context } from '@/shared/providers/contexts/AuthContext/AuthContext';
 
 import { Container, Content, SidebarMenu } from './styles';
+import { useRouter } from 'next/router';
 
 interface ITopbar {
   setToastVisibility: (visible: boolean) => void;
 }
 
 const Topbar: React.FC<ITopbar> = ({ setToastVisibility }: ITopbar) => {
+  const router = useRouter();
   const { handleLogout, authenticated, loggedUser } = useContext(Context);
 
   const isMobile = useIsMobile();
@@ -29,9 +31,7 @@ const Topbar: React.FC<ITopbar> = ({ setToastVisibility }: ITopbar) => {
   }
 
   function handleOpenUserChat() {
-    window.open(
-      `http://localhost:9999/chat.html?name=${loggedUser?.name}&email=${loggedUser?.email}`,
-    );
+    router.push(`/chat?name=${loggedUser?.name}&email=${loggedUser?.email}`);
   }
 
   return (

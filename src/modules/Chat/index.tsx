@@ -6,7 +6,7 @@ import { Container, Content, Footer, Messages } from './styles';
 import moment from 'moment';
 
 const ChatModule: React.FC = () => {
-  const socket = io('http://localhost:9999');
+  const socket = io('http://192.168.18.7:9999');
 
   let idChatRoom = '';
 
