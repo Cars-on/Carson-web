@@ -1,6 +1,12 @@
 import React, { useState, useContext } from 'react';
 import Link from 'next/link';
-import { FiMessageCircle, FiUser, FiLogOut, FiGrid } from 'react-icons/fi';
+import {
+  FiMessageCircle,
+  FiUser,
+  FiLogOut,
+  FiGrid,
+  FiUsers,
+} from 'react-icons/fi';
 
 import useIsMobile from '@/shared/hooks/useIsMobile';
 import SearchBar from '@/shared/components/molecules/SearchBar';
@@ -82,9 +88,17 @@ const Topbar: React.FC<ITopbar> = ({ setToastVisibility }: ITopbar) => {
                 </Button>
               )}
 
+              {authenticated && (
+                <Link href="/user">
+                  <Button primary icon={FiUser}>
+                    {loggedUser?.name}
+                  </Button>
+                </Link>
+              )}
+
               {!authenticated && (
                 <Link href="/login">
-                  <Button primary icon={FiUser}>
+                  <Button primary icon={FiUsers}>
                     Entrar
                   </Button>
                 </Link>
